@@ -46,7 +46,7 @@ namespace Entidades
 
             retorno = n1.numero + n2.numero;
 
-            return retorno
+            return retorno;
 
         }
 
@@ -70,7 +70,7 @@ namespace Entidades
         public static double operator /(Numero n1, Numero n2)
         {
             double retorno = 0;
-            if(n2.numero == 0)
+            if (n2.numero == 0)
             {
                 retorno = double.MinValue;
             }
@@ -82,7 +82,7 @@ namespace Entidades
             return retorno;
         }
 
-        
+
         private bool EsBinario(string binario)
         {
             bool exito = true;
@@ -91,7 +91,7 @@ namespace Entidades
 
             for (int i = 0; i < cadenaBinaria.Length; i++)
             {
-                if(cadenaBinaria[i] != '0' && cadenaBinaria[i] != '1')
+                if (cadenaBinaria[i] != '0' && cadenaBinaria[i] != '1')
                 {
                     exito = false;
                     break;
@@ -100,6 +100,81 @@ namespace Entidades
             return exito;
         }
 
+        public string BinarioDecimal(string binario)
+        {
+            string strResultado = "Valor invalido";
+
+            if (EsBinario(binario))
+            {
+                char[] charBinario = binario.ToCharArray();
+                Array.Reverse(charBinario);
+
+                double acumuladorResultado = 0;
+
+                for (int i = 0; i < charBinario.Length; i++)
+                {
+                    if (charBinario[i] == '1')
+                    {
+                        if (i == 0)
+                        {
+                            acumuladorResultado += 1;
+
+                        }
+                        else
+                        {
+                            acumuladorResultado += (int)Math.Pow(2, i);
+                        }
+                    }
+
+                }
+                strResultado = Convert.ToString(acumuladorResultado);
+            }
+            return strResultado;
+        }
+
+
+        public static string DecimalBinario(double numero)
+        {
+            string strBinario = "";
+            int enteroDelNumero = (int)(numero);
+
+            if (enteroDelNumero > 0)
+            {
+                while (enteroDelNumero > 1)
+                {
+                    int remainder = enteroDelNumero % 2;
+                    strBinario = Convert.ToString(remainder) + strBinario;
+                    enteroDelNumero /= 2;
+                }
+                strBinario = Convert.ToString(enteroDelNumero) + strBinario;
+
+            }
+            else
+            {
+                if (enteroDelNumero == 0)
+                {
+                    strBinario = "0";
+                }
+                else
+                {
+                    strBinario = "Valor invalido";
+                }
+            }
+
+            return strBinario;
+        }
+
+        public static string DecimalBinario(string numero)
+        {
+            double auxConversion;
+            string strConversion = "";
+            if(double.TryParse(numero, out auxConversion))
+            {
+                strConversion = DecimalBinario(auxConversion);
+            }
+                
+            return strConversion;
+        }
 
 
 
