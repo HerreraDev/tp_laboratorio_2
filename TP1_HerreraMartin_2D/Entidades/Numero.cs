@@ -11,24 +11,53 @@ namespace Entidades
     {
         double numero;
 
+        /// <summary>
+        /// Propiedad para asignar un valor al atributo numero
+        /// luego de haberlo validado con el metodo ValidarNumero
+        /// </summary>
         public string SetNumero
         {
-            set { this.numero = ValidarNumero(value); }
+            set 
+            { 
+                this.numero = ValidarNumero(value); 
+            }
         }
+
+        /// <summary>
+        /// Constructor por defecto, este asigna 0 al atributo numero
+        /// de la clase Numero
+        /// </summary>
         public Numero()
         {
             this.numero = 0;
         }
+
+        /// <summary>
+        /// Constructor para asignar un double al atributo numero
+        /// de la clase Numero
+        /// </summary>
+        /// <param name="numero">numero en formato double a asignar</param>
         public Numero(double numero)
         {
             this.numero = numero;
         }
 
+        /// <summary>
+        /// Constructor para asignar un numero que llega por parametro
+        /// en formato string con la propiedad setNumero
+        /// </summary>
+        /// <param name="strNumero">numero a asignar en formato string</param>
         public Numero(string strNumero)
         {
             this.SetNumero = strNumero;
         }
 
+        /// <summary>
+        /// Comprueba que  que el valor recibido sea numérico, y lo retornará 
+        /// en formato double
+        /// </summary>
+        /// <param name="strNumero">string a validar</param>
+        /// <returns></returns>
         private double ValidarNumero(string strNumero)
         {
             double exito;
@@ -39,6 +68,12 @@ namespace Entidades
             return exito;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador +
+        /// </summary>
+        /// <param name="n1">objeto de la clase Numero</param>
+        /// <param name="n2">objeto de la clase Numero</param>
+        /// <returns>retorna la suma de los numeros en fomato double</returns>
         public static double operator +(Numero n1, Numero n2)
         {
             double retorno = 0;
@@ -49,6 +84,12 @@ namespace Entidades
 
         }
 
+        /// <summary>
+        /// Sobrecarga del operador -
+        /// </summary>
+        /// <param name="n1">objeto de la clase Numero</param>
+        /// <param name="n2">objeto de la clase Numero</param>
+        /// <returns>retorna la resta de los numeros en fomato double</returns>
         public static double operator -(Numero n1, Numero n2)
         {
             double retorno = 0;
@@ -58,6 +99,12 @@ namespace Entidades
             return retorno;
         }
 
+        /// <summary>
+        /// Sobrecarga del operador *
+        /// </summary>
+        /// <param name="n1">objeto de la clase Numero</param>
+        /// <param name="n2">objeto de la clase Numero</param>
+        /// <returns>retorna la multiplicacion de los numeros en fomato double</returns>
         public static double operator *(Numero n1, Numero n2)
         {
             double retorno = 0;
@@ -66,6 +113,13 @@ namespace Entidades
 
             return retorno;
         }
+
+        /// <summary>
+        /// Sobrecarga del operador /
+        /// </summary>
+        /// <param name="n1">objeto de la clase Numero</param>
+        /// <param name="n2">objeto de la clase Numero</param>
+        /// <returns>retorna la division de los numeros en fomato double</returns>
         public static double operator /(Numero n1, Numero n2)
         {
             double retorno = 0;
@@ -81,7 +135,12 @@ namespace Entidades
             return retorno;
         }
 
-
+        /// <summary>
+        /// Verifica que la cadena que llega por parametro este compuesta
+        /// por 1 y 0 unicamente
+        /// </summary>
+        /// <param name="binario">cadena a verificar</param>
+        /// <returns>retorna true si es binaria la cadena, false si no lo es</returns>
         private static bool EsBinario(string binario)
         {
             bool exito = true;
@@ -99,6 +158,12 @@ namespace Entidades
             return exito;
         }
 
+        /// <summary>
+        /// Convertira la cadena que llega por parametro a decimal
+        /// con previa verificacion
+        /// </summary>
+        /// <param name="binario">cadena binaria a convertir</param>
+        /// <returns>devuelve la cadena en decimal, caso contrario devuelve valor invalido</returns>
         public static string BinarioDecimal(string binario)
         {
             string strResultado = "Valor invalido";
@@ -131,7 +196,11 @@ namespace Entidades
             return strResultado;
         }
 
-
+        /// <summary>
+        /// Convierte un numero decimal a binario
+        /// </summary>
+        /// <param name="numero">numero a convertir</param>
+        /// <returns>devuelve el numero decimal en formato string o ,si no pudo, valor invalido</returns>
         public static string DecimalBinario(double numero)
         {
             string strBinario = "";
@@ -163,6 +232,12 @@ namespace Entidades
             return strBinario;
         }
 
+        /// <summary>
+        /// Convierte un decimal a binario
+        /// ayudandose con el metodo DecimalBinario
+        /// </summary>
+        /// <param name="numero">cadena a convertir</param>
+        /// <returns>devuelve valor invalido si no pudo convertir, si pudo, devuelve la cadena convertida</returns>
         public static string DecimalBinario(string numero)
         {
             double auxConversion;

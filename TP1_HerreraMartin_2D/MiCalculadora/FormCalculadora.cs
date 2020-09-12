@@ -47,6 +47,14 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Recibe los dos números y el operador para luego llamar al método Operar de Calculadora y 
+        /// retorna el resultado al método de evento del botón btnOperar que reflejará el resultado en el Label txtResultado. 
+        /// </summary>
+        /// <param name="numero1">numero a operar</param>
+        /// <param name="numero2">numero a operar</param>
+        /// <param name="operador">operador que determinara que operacion se realiza</param>
+        /// <returns>retorna el resultado en formato double de la operacion</returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             Numero num1 = new Numero(numero1);
