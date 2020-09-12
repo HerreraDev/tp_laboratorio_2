@@ -15,7 +15,6 @@ namespace Entidades
         {
             set { this.numero = ValidarNumero(value); }
         }
-
         public Numero()
         {
             this.numero = 0;
@@ -33,7 +32,7 @@ namespace Entidades
         private double ValidarNumero(string strNumero)
         {
             double exito;
-            if (double.TryParse(strNumero, out exito))
+            if (!double.TryParse(strNumero, out exito))
             {
                 exito = 0;
             }
@@ -83,7 +82,7 @@ namespace Entidades
         }
 
 
-        private bool EsBinario(string binario)
+        private static bool EsBinario(string binario)
         {
             bool exito = true;
 
@@ -100,7 +99,7 @@ namespace Entidades
             return exito;
         }
 
-        public string BinarioDecimal(string binario)
+        public static string BinarioDecimal(string binario)
         {
             string strResultado = "Valor invalido";
 
@@ -155,7 +154,7 @@ namespace Entidades
                 {
                     strBinario = "0";
                 }
-                else
+                else if(enteroDelNumero < 0)
                 {
                     strBinario = "Valor invalido";
                 }
@@ -167,7 +166,7 @@ namespace Entidades
         public static string DecimalBinario(string numero)
         {
             double auxConversion;
-            string strConversion = "";
+            string strConversion = "Valor invalido";
             if(double.TryParse(numero, out auxConversion))
             {
                 strConversion = DecimalBinario(auxConversion);

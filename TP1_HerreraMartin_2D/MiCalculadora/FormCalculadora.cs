@@ -18,22 +18,55 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            this.txtNumero1.Text = String.Empty;
+            this.txtNumero2.Text = String.Empty;
+            this.cmbOperador.SelectedIndex = -1;
+            this.lblResultado.Text = String.Empty;
         }
 
-        private void btn_Limpiar_Click(object sender, EventArgs e)
-        {
-            this.txt_Num1.Text = "";
-            this.txt_Num2.Text = "";
-            this.cmbOperadores.SelectedIndex = -1;
-            this.lbl_Resultado.Text = String.Empty;
-        }
-
-        private void btn_Cerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void btnConvertirABinario_Click(object sender, EventArgs e)
+        {
+            if(this.lblResultado.Text != String.Empty)
+            {
+                this.lblResultado.Text = Entidades.Numero.DecimalBinario(this.lblResultado.Text);
+            }
+        }
+
+        private void btnConvertirADecimal_Click(object sender, EventArgs e)
+        {
+            if(this.lblResultado.Text != String.Empty)
+            {
+              this.lblResultado.Text = Entidades.Numero.BinarioDecimal(this.lblResultado.Text);
+            }
+        }
+
+        private static double Operar(string numero1, string numero2, string operador)
+        {
+            Numero num1 = new Numero(numero1);
+            Numero num2 = new Numero(numero2);
+            double resultado;
+
+            resultado = Calculadora.Operar(num1, num2, operador);
+
+            return resultado;
+        }
+
+        private void btnOperar_Click(object sender, EventArgs e)
+        {
+            double respuesta;
+            respuesta = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.SelectedItem.ToString());
+            this.lblResultado.Text = Convert.ToString(respuesta);
+
+        }
+
+
+
     }
 }
