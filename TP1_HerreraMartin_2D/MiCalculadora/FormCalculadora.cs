@@ -69,7 +69,16 @@ namespace MiCalculadora
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double respuesta;
-            respuesta = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.SelectedItem.ToString());
+            string operadorAux="";
+            if(this.cmbOperador.SelectedItem.ToString() == "-1")
+            {
+                operadorAux = "+";
+            }
+            else
+            {
+                operadorAux = this.cmbOperador.SelectedItem.ToString();
+            }
+            respuesta = Operar(this.txtNumero1.Text, this.txtNumero2.Text, operadorAux);
             this.lblResultado.Text = Convert.ToString(respuesta);
 
         }

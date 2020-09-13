@@ -19,8 +19,10 @@ namespace Entidades
         public static double Operar(Numero num1, Numero num2, string operador)
         {
             double resultado = 0;
-            
-            switch(ValidarOperador(Convert.ToChar(operador)))
+            char operadorAValidar = Convert.ToChar(operador);
+            string operadorAux = ValidarOperador(operadorAValidar);
+
+            switch(operadorAux)
             {
                 case "+":
                     resultado = num1+num2;
