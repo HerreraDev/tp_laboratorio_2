@@ -18,32 +18,59 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evento del boton btnLimpiar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.txtNumero1.Text = String.Empty;
             this.txtNumero2.Text = String.Empty;
             this.cmbOperador.SelectedIndex = -1;
             this.lblResultado.Text = String.Empty;
+            btnConvertirABinario.Enabled = false;
+            btnConvertirADecimal.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento del boton btnCerrar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Evento del boton btnConvertirABinario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             if(this.lblResultado.Text != String.Empty)
             {
                 this.lblResultado.Text = Entidades.Numero.DecimalBinario(this.lblResultado.Text);
+                btnConvertirABinario.Enabled = false;
+                btnConvertirADecimal.Enabled = true;
             }
+
         }
 
+        /// <summary>
+        /// Evento del boton btnConvertirADecimal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             if(this.lblResultado.Text != String.Empty)
             {
               this.lblResultado.Text = Entidades.Numero.BinarioDecimal(this.lblResultado.Text);
+               btnConvertirABinario.Enabled = true;
+               btnConvertirADecimal.Enabled = false;
             }
         }
 
@@ -66,6 +93,11 @@ namespace MiCalculadora
             return resultado;
         }
 
+        /// <summary>
+        /// Evento del boton btnOperar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double respuesta;
@@ -80,6 +112,8 @@ namespace MiCalculadora
             }
             respuesta = Operar(this.txtNumero1.Text, this.txtNumero2.Text, operadorAux);
             this.lblResultado.Text = Convert.ToString(respuesta);
+            this.btnConvertirADecimal.Enabled = false;
+            this.btnConvertirABinario.Enabled = true;
 
         }
 

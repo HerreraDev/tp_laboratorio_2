@@ -205,7 +205,6 @@ namespace Entidades
         {
             string strBinario = "";
             int enteroDelNumero = (int)(numero);
-            Math.Abs(enteroDelNumero);
 
             if (enteroDelNumero > 0)
             {
@@ -245,7 +244,7 @@ namespace Entidades
             string strConversion = "Valor invalido";
             if(double.TryParse(numero, out auxConversion))
             {
-                strConversion = DecimalBinario(Math.Abs(auxConversion));
+                strConversion = DecimalBinario(auxConversion);
             }
                 
             return strConversion;
