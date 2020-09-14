@@ -25,12 +25,7 @@ namespace MiCalculadora
         /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.txtNumero1.Text = String.Empty;
-            this.txtNumero2.Text = String.Empty;
-            this.cmbOperador.SelectedIndex = -1;
-            this.lblResultado.Text = String.Empty;
-            btnConvertirABinario.Enabled = false;
-            btnConvertirADecimal.Enabled = false;
+            Limpiar(); 
         }
 
         /// <summary>
@@ -117,6 +112,18 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Deja todos los campos vacios y reestablecidos
+        /// </summary>
+        private void Limpiar()
+        {
+            this.txtNumero1.Text = String.Empty;
+            this.txtNumero2.Text = String.Empty;
+            this.cmbOperador.SelectedIndex = -1;
+            this.lblResultado.Text = String.Empty;
+            btnConvertirABinario.Enabled = false;
+            btnConvertirADecimal.Enabled = false;
+        }
 
 
     }
