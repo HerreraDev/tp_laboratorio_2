@@ -70,7 +70,7 @@ namespace MiCalculadora
         {
             double respuesta;
             string operadorAux="";
-            if(this.cmbOperador.SelectedItem.ToString() == "-1")
+            if(this.cmbOperador.SelectedItem == null)
             {
                 operadorAux = "+";
             }

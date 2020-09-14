@@ -211,8 +211,8 @@ namespace Entidades
             {
                 while (enteroDelNumero > 1)
                 {
-                    int remainder = enteroDelNumero % 2;
-                    strBinario = Convert.ToString(remainder) + strBinario;
+                    int residuo = enteroDelNumero % 2;
+                    strBinario = Convert.ToString(residuo) + strBinario;
                     enteroDelNumero /= 2;
                 }
                 strBinario = Convert.ToString(enteroDelNumero) + strBinario;
