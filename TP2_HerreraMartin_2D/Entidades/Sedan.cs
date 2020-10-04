@@ -19,7 +19,7 @@ namespace Entidades
         /// <param name="chasis"></param>
         /// <param name="color"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
-            : base(marca,chasis, color)
+            : base(chasis, marca, color)
         {
             this.tipo = ETipo.CuatroPuertas;
         }
@@ -31,16 +31,16 @@ namespace Entidades
         /// <param name="chasis"></param>
         /// <param name="color"></param>
         /// <param name="tipoVehiculo"></param>
-        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipoVehiculo)
-        : base(marca, chasis, color)
+        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
+        : base(chasis, marca, color)
         {
-            this.tipo = tipoVehiculo;
+            this.tipo = tipo;
         }
 
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
-        public override ETamanio Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {

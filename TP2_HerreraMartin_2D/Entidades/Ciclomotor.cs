@@ -14,14 +14,14 @@ namespace Entidades
         /// <param name="marca"></param>
         /// <param name="chasis"></param>
         /// <param name="color"></param>
-        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color):base(marca,chasis,color)
+        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color):base(chasis, marca, color)
         {
         }
         
         /// <summary>
         /// Ciclomotor son 'Chico'
         /// </summary>
-        public override ETamanio Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {
@@ -30,10 +30,10 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Crea un StringBuilder con losd atos del ciclomotor
+        /// Crea un StringBuilder con los datos del ciclomotor
         /// </summary>
         /// <returns>string con los datos</returns>
-        public override string Mostrar()
+        public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 

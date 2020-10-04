@@ -29,7 +29,7 @@ namespace Entidades
         /// <param name="marca"></param>
         /// <param name="chasis"></param>
         /// <param name="color"></param>
-        public Vehiculo(EMarca marca, string chasis, ConsoleColor color)
+        public Vehiculo(string chasis, EMarca marca, ConsoleColor color)
         {
             this.marca = marca;
             this.chasis = chasis;
@@ -39,13 +39,7 @@ namespace Entidades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        public virtual ETamanio Tamanio 
-        {
-            get
-            {
-                return this.Tamanio;
-            }
-        }
+        protected abstract ETamanio Tamanio { get; }
 
         /// <summary>
         /// Publica todos los datos del Vehiculo.
