@@ -23,7 +23,13 @@ namespace Entidades
         private string chasis;
         private ConsoleColor color;
 
-        protected Vehiculo(EMarca marca, string chasis, ConsoleColor color)
+        /// <summary>
+        /// Constructor parametrizado
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        public Vehiculo(EMarca marca, string chasis, ConsoleColor color)
         {
             this.marca = marca;
             this.chasis = chasis;
@@ -57,6 +63,10 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Sobrecarga del operador string
+        /// </summary>
+        /// <param name="p"></param>
         public static explicit operator string(Vehiculo p)
         {
             return p.Mostrar();

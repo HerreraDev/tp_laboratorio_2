@@ -24,6 +24,13 @@ namespace Entidades
             this.tipo = ETipo.CuatroPuertas;
         }
 
+        /// <summary>
+        /// Constructor que permite elegir el tipo de vehiculo
+        /// </summary>
+        /// <param name="marca"></param>
+        /// <param name="chasis"></param>
+        /// <param name="color"></param>
+        /// <param name="tipoVehiculo"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipoVehiculo)
         : base(marca, chasis, color)
         {

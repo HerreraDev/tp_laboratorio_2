@@ -31,3 +31,13 @@ C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laborato
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\TP-02\bin\Debug\Entidades.pdb
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\TP-02\obj\Debug\TP-02.csproj.CopyComplete
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\TP-02\obj\Debug\TP-02.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\bin\Debug\TP-02.exe.config
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\bin\Debug\TP-02.exe
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\bin\Debug\TP-02.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\bin\Debug\Entidades.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\bin\Debug\Entidades.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\obj\Debug\TP-02.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\obj\Debug\TP-02.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\obj\Debug\TP-02.csproj.CopyComplete
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\obj\Debug\TP-02.exe
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\TP-02\obj\Debug\TP-02.pdb

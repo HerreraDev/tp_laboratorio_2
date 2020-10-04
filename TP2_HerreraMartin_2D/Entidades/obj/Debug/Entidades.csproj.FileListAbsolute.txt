@@ -17,3 +17,9 @@ C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laborato
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\Entidades\obj\Debug\Entidades.dll
 C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tps\TP2\Actualizado\TP-02-Cascara.r2\TP-02\Entidades\obj\Debug\Entidades.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\bin\Debug\Entidades.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\bin\Debug\Entidades.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\obj\Debug\Entidades.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP2_HerreraMartin_2D\Entidades\obj\Debug\Entidades.pdb
