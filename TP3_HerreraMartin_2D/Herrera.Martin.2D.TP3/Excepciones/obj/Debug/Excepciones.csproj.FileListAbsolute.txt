@@ -1,6 +1,0 @@
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\bin\Debug\Excepciones.dll
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\bin\Debug\Excepciones.pdb
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\obj\Debug\Excepciones.csprojAssemblyReference.cache
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\obj\Debug\Excepciones.dll
-C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Excepciones\obj\Debug\Excepciones.pdb
