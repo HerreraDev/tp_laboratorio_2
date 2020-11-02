@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Clases_Instanciables;
+using EntidadesAbstractas = Clases_Abstractas;
+using Excepciones;
 
 namespace Main
 {

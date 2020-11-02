@@ -1,0 +1,13 @@
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Clases Instanciables.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Clases Instanciables.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Archivos.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Clases Abstractas.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Excepciones.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Archivos.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Clases Abstractas.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\bin\Debug\Excepciones.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\obj\Debug\Clases Instanciables.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\obj\Debug\Clases Instanciables.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\obj\Debug\Clases Instanciables.csproj.CopyComplete
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\obj\Debug\Clases Instanciables.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Clases Instanciables\obj\Debug\Clases Instanciables.pdb

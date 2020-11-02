@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    class SinProfesorException
+    public class SinProfesorException : Exception
     {
+        public SinProfesorException() : base("Sin profesor") { }
+
+        public SinProfesorException(string message) : base(message) { }
     }
 }

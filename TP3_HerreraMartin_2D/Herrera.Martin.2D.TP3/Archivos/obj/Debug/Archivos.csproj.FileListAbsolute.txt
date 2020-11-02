@@ -1,0 +1,9 @@
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\bin\Debug\Archivos.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\bin\Debug\Archivos.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\bin\Debug\Excepciones.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\bin\Debug\Excepciones.pdb
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\obj\Debug\Archivos.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\obj\Debug\Archivos.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\obj\Debug\Archivos.csproj.CopyComplete
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\obj\Debug\Archivos.dll
+C:\Users\marti\Desktop\Facultad\Segundo cuatrimestre\Programación II y Laboratorio II\Tps\tp_laboratorio_2\TP3_HerreraMartin_2D\Herrera.Martin.2D.TP3\Archivos\obj\Debug\Archivos.pdb

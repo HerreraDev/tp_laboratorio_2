@@ -11,16 +11,16 @@ namespace Excepciones
         /// <summary>
         /// Constructor 
         /// </summary>
-        public DniInvalidoException() : base() { }
+        public DniInvalidoException() : base("Error, dni invalido") { }
 
         /// <summary>
-        /// Constructor con mensaje default
+        /// Constructor con dos parametros
         /// </summary>
         /// <param name="e"></param>
         public DniInvalidoException(Exception e) : base ("El DNI es invalido",e){ }
 
         /// <summary>
-        /// Constructor con mensaje
+        /// Constructor parametrizado
         /// </summary>
         /// <param name="message"></param>
         public DniInvalidoException(string message) : base(message) { }

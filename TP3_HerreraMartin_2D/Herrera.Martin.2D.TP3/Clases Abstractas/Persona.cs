@@ -9,16 +9,15 @@ using Excepciones;
 
 namespace Clases_Abstractas
 {
-    public enum ENacionalidad
-    {
-        Argentino,
-        Extranjero
-    }
-
-
 
     public abstract class Persona
     {
+        public enum ENacionalidad
+        {
+            Argentino,
+            Extranjero
+        }
+
         protected string apellido;
         protected int dni;
         protected ENacionalidad nacionalidad;
@@ -43,18 +42,7 @@ namespace Clases_Abstractas
 
             set 
             { 
-                try
-                {
-                    this.dni = ValidarDni(this.nacionalidad, value);
-                }
-                catch(DniInvalidoException dniInvalido)
-                {
-                    Console.WriteLine(dniInvalido.Message);
-                }
-                catch(NacionalidadInvalidaException nacionalidadInvalida)
-                {
-                    Console.WriteLine(nacionalidadInvalida.Message);
-                }
+               this.dni = ValidarDni(this.nacionalidad, value);
             }
             
         }
@@ -82,7 +70,10 @@ namespace Clases_Abstractas
         /// </summary>
         public string StringToDNI
         {
-            set { this.dni = ValidarDni(this.nacionalidad,value); }
+            set
+            { 
+               this.dni = ValidarDni(this.nacionalidad,value);
+            }
         }
         #endregion
 
@@ -111,6 +102,10 @@ namespace Clases_Abstractas
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// Pone visible los datos de la persona
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder datosPersona = new StringBuilder();
@@ -122,6 +117,13 @@ namespace Clases_Abstractas
             return datosPersona.ToString();
         }
 
+        /// <summary>
+        /// Valida que el dni este entre el rango solicitado,
+        /// y que coincida con la nacionalidad 
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
 
@@ -133,17 +135,23 @@ namespace Clases_Abstractas
 
             if (nacionalidad == ENacionalidad.Argentino && (dato >= 90000000 && dato <= 99999999))
             {
-                throw new NacionalidadInvalidaException("Ese dni no coincide con la nacionalidad argentino");
+                throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
             }
 
             if (nacionalidad == ENacionalidad.Extranjero && (dato >= 1 && dato <= 89999999))
             {
-                throw new NacionalidadInvalidaException("Ese dni no coincide con la nacionalidad extranjero");
+                throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
             }
 
             return dato;
         }
 
+        /// <summary>
+        /// Valida que el dni no tenga error de formato
+        /// </summary>
+        /// <param name="nacionalidad"></param>
+        /// <param name="dato"></param>
+        /// <returns>devuele el dni validado o lanza la DniInvalidoException</returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
 
@@ -156,6 +164,13 @@ namespace Clases_Abstractas
         }
 
 
+        /// <summary>
+        /// Validara que el nombre y el apellido sean de una longitud mayor a 2,
+        /// que no esten vacios y que cumplan con la expresion regular que indica
+        /// que solo se usen los caracteres de la A a la Z mayuscula y minuscula
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <returns></returns>
         private string ValidarNombreApellido(string dato)
         {
             string validacion = "^[a-zA-Z]+$";
