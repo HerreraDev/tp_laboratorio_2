@@ -1,0 +1,8 @@
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\bin\Debug\Archivos.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\bin\Debug\Archivos.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\obj\Debug\Excepciones.csproj.CopyComplete
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Excepciones\obj\Debug\Excepciones.pdb

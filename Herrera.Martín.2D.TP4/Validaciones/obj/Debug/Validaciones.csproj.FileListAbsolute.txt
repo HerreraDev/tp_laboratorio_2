@@ -1,0 +1,9 @@
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\bin\Debug\Validaciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\bin\Debug\Validaciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\obj\Debug\Validaciones.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\obj\Debug\Validaciones.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\obj\Debug\Validaciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\obj\Debug\Validaciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\bin\Debug\Excepciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\bin\Debug\Excepciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Validaciones\obj\Debug\Validaciones.csproj.CopyComplete

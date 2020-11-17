@@ -1,0 +1,5 @@
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Archivos\bin\Debug\Archivos.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Archivos\bin\Debug\Archivos.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Archivos\obj\Debug\Archivos.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Archivos\obj\Debug\Archivos.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Archivos\obj\Debug\Archivos.pdb

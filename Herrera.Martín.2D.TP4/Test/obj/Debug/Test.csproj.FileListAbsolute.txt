@@ -1,0 +1,7 @@
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\bin\Debug\Test.exe.config
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\bin\Debug\Test.exe
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\bin\Debug\Test.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\obj\Debug\Test.exe
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Test\obj\Debug\Test.pdb
