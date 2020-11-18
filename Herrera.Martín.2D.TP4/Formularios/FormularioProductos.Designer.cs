@@ -65,6 +65,7 @@
             this.dtgProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProductos.Size = new System.Drawing.Size(412, 319);
             this.dtgProductos.TabIndex = 0;
+            this.dtgProductos.DoubleClick += new System.EventHandler(this.dtgProductos_DoubleClick);
             // 
             // label1
             // 
@@ -227,6 +228,7 @@
             this.Controls.Add(this.dtgProductos);
             this.Name = "FormularioProductos";
             this.Text = "Insertar productos ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormularioProductos_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgProductos)).EndInit();
             this.ResumeLayout(false);

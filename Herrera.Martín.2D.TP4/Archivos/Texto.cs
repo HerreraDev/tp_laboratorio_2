@@ -10,7 +10,7 @@ namespace Archivos
 {
     public class Texto : IArchivo<string>
     {
-        public bool GenerarTicketTxt(string archivo, string datos)
+        public bool GuardarEnArchivo(string archivo, string datos)
         {
             bool exitoAlEscribirArchivo = false;
             try 
@@ -26,7 +26,7 @@ namespace Archivos
             }
             catch (Exception)
             {
-                throw new ArchivosException("Se produjo un error mientras se guardaba el archivo");
+                throw new ArchivosException("Se produjo un error mientras se guardaba el archivo txt");
             }
         }
     }

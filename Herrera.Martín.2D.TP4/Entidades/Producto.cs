@@ -37,11 +37,11 @@ namespace Entidades
         /// <param name="cantidad"></param>
         public Producto(int idProducto, string nombreProducto, double precio, int cantidad, ETipoDeProducto tipo) : this()
         {
-            this.idProducto = idProducto;
-            this.nombreProducto = nombreProducto;
-            this.precio = precio;
-            this.cantidad = cantidad;
-            this.tipo = tipo;
+            this.IdProducto = idProducto;
+            this.NombreProducto = nombreProducto;
+            this.Precio = precio;
+            this.Cantidad = cantidad;
+            this.Tipo = tipo;
         }
         #endregion
 
@@ -49,22 +49,27 @@ namespace Entidades
         public int IdProducto
         {
             get { return this.idProducto; }
-            set { this.idProducto = value; }
+            set { this.idProducto = Validar.ValidarEnteros(value.ToString()); }
         }
         public string NombreProducto
         {
             get { return this.nombreProducto; }
+            set 
+            {
+                if(value!= string.Empty)
+                    this.nombreProducto = value;
+            }
         }
         public double Precio
         {
             get { return this.precio; }
-            set { this.precio = value; }
+            set { this.precio = Validar.ValidarPrecio(value.ToString()); }
 
         }
         public int Cantidad
         {
             get { return this.cantidad; }
-            set { this.cantidad = value; }
+            set { this.cantidad = Validar.ValidarCantidad(value.ToString()); }
 
         }
 
@@ -89,15 +94,67 @@ namespace Entidades
             return datosProducto.ToString();
         }
 
+        /// <summary>
+        /// Genero un txt con el producto generado
+        /// </summary>
+        /// <param name="auxProd"></param>
+        /// <returns></returns>
         public static bool Guardar(Producto auxProd)
         {
             string archivo = AppDomain.CurrentDomain.BaseDirectory + "UltimoProductoAgregado.txt";
 
             Texto auxParaEscribir = new Texto();
 
-            return auxParaEscribir.GenerarTicketTxt(archivo, auxProd.ToString());
+            return auxParaEscribir.GuardarEnArchivo(archivo, auxProd.ToString());
         }
 
+        /// <summary>
+        /// Verifica que el producto este en la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="auxProducto"></param>
+        /// <returns></returns>
+        public static bool operator ==(List<Producto> productos, Producto auxProducto)
+        {
+
+            foreach (Producto item in productos)
+            {
+                if (item.idProducto == auxProducto.idProducto)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Verifica si un producto no este en la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="auxProducto"></param>
+        /// <returns>true si no lo encuentra, false caso contrario</returns>
+        public static bool operator !=(List<Producto> productos, Producto auxProducto)
+        {
+            return !(productos==auxProducto);
+        }
+
+        public static bool operator +(List<Producto> productos, Producto auxProducto)
+        {
+            bool exito;
+            if (productos != auxProducto)
+            {          
+                ManejoBaseDeDatos.InsertarProducto(auxProducto);
+                exito = true;
+            }
+            else
+            {
+                exito = false;
+                throw new Exception();
+            }
+
+            return exito;
+        }
 
     }
 }

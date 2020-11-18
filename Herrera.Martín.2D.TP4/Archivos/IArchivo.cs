@@ -8,7 +8,7 @@ namespace Archivos
 {
     interface IArchivo <T>
     {
-        bool GenerarTicketTxt(string archivo, T datos);
+        bool GuardarEnArchivo(string archivo, T datos);
 
     }
 }

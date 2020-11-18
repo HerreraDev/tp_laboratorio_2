@@ -1,9 +1,9 @@
-Software:
-ID: 14
-Nombre: sfot2
-Precio: 323
-Cantidad: 2
-Tipo: software
+Hardware:
+ID: 30
+Nombre: soflt445
+Precio: 3
+Cantidad: 33
+Tipo: hardware
 
 ---------------------------------------------------------
 

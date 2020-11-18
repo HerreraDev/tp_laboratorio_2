@@ -24,7 +24,7 @@ namespace Formularios
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.dtgProductos.DataSource = ManejoBaseDeDatos.TraerProductos();
+            this.dtgProductos.DataSource = Entidades.Stock.ListaProductos;
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -40,9 +40,12 @@ namespace Formularios
                         Producto.ETipoDeProducto.software);
 
                     //Inserto a la base
-                    if (ManejoBaseDeDatos.InsertarALaBase(auxSoft))
-                        MessageBox.Show("Producto ingresado");
+                    if (Stock.ListaProductos + auxSoft)
+                    {
+                        MessageBox.Show("Producto insertado");
+                    }
 
+                    //Guardo el producto en un txt
                     Producto.Guardar(auxSoft);
                 }
                 else if (this.ckbx_Hardware.Checked && !(this.ckbx_Software.Checked) && this.txt_Nombre.Text != string.Empty)
@@ -53,9 +56,12 @@ namespace Formularios
                         Producto.ETipoDeProducto.hardware);
 
                     //Inserto a la base
-                    if (ManejoBaseDeDatos.InsertarALaBase(auxHard))
-                        MessageBox.Show("Producto ingresado");
+                    if (Stock.ListaProductos + auxHard)
+                    {
+                        MessageBox.Show("Producto insertado");
+                    }
 
+                    //Guardo el producto en un txt
                     Producto.Guardar(auxHard);
 
                 }
@@ -67,6 +73,10 @@ namespace Formularios
             catch (DatosErroneosException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            catch (ArchivosException archivoError)
+            {
+                MessageBox.Show(archivoError.Message);
             }
             catch (Exception exGeneral)
             {
@@ -136,8 +146,30 @@ namespace Formularios
                 this.dtgProductos.DataSource = productos;
             }
 
-            Thread.Sleep(500);
+            Thread.Sleep(2000);
             refrescarDataGridViewProductos();
+        }
+
+        private void FormularioProductos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(hiloRefrescar != null)
+            {
+                this.hiloRefrescar.Abort();
+            }
+        }
+
+        private void dtgProductos_DoubleClick(object sender, EventArgs e)
+        {
+            //string nombreProducto = (string)dtgProductos.CurrentRow.Cells["NombreProducto"].Value.ToString();
+
+            //for (int i = 0; i < Stock.ListaProductos.Count; i++)
+            //{
+            //    if (Stock.ListaProductos[i].NombreProducto == nombreProducto)
+            //    {
+            //        ManejoBaseDeDatos.EliminarProducto(Stock.ListaProductos[i]);
+            //        break;
+            //    }
+            //}
         }
     }
 }

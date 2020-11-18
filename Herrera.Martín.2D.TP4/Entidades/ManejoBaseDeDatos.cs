@@ -30,7 +30,10 @@ namespace Entidades
                 comandoAEjecutar.CommandType = CommandType.Text;
                 comandoAEjecutar.CommandText = "select * from Producto";
 
-                conexionALaBase.Open();
+                if (conexionALaBase.State != ConnectionState.Open)
+                {
+                    conexionALaBase.Open();
+                }
 
                 SqlDataReader lector = comandoAEjecutar.ExecuteReader();
 
@@ -59,11 +62,14 @@ namespace Entidades
 
             finally
             {
-                conexionALaBase.Close();
+                if (conexionALaBase.State != ConnectionState.Closed)
+                {
+                    conexionALaBase.Close();
+                }
             }
         }
 
-        public static bool InsertarALaBase(Producto auxProd)
+        public static bool InsertarProducto(Producto auxProducto)
         {
             SqlCommand comandoAEjecutar;
             comandoAEjecutar = new SqlCommand();
@@ -78,11 +84,16 @@ namespace Entidades
 
                 comandoAEjecutar.Parameters.Clear();
                 //comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", auxProd.IdProducto));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxProd.NombreProducto));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxProd.Precio));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxProd.Cantidad));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxTipo", auxProd.Tipo.ToString()));
-                conexionALaBase.Open();
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxProducto.NombreProducto));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxProducto.Precio));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxProducto.Cantidad));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxTipo", auxProducto.Tipo.ToString()));
+
+                if (conexionALaBase.State != ConnectionState.Open)
+                {
+                    conexionALaBase.Open();
+                }
+
                 comandoAEjecutar.ExecuteNonQuery();
                 exito = true;
             }
@@ -93,10 +104,53 @@ namespace Entidades
             }
             finally
             {
-                conexionALaBase.Close();
+                if (conexionALaBase.State != ConnectionState.Closed)
+                {
+                    conexionALaBase.Close();
+                }
             }
 
             return exito;
+        }
+
+        public static bool EliminarProducto(Producto auxProducto)
+        {
+            SqlCommand comandoAEjecutar;
+            comandoAEjecutar = new SqlCommand();
+            bool exito;
+            try 
+            {
+                comandoAEjecutar.Connection = conexionALaBase;
+                comandoAEjecutar.CommandType = CommandType.Text;
+
+                comandoAEjecutar.CommandText = "Delete Producto where idProducto = @auxID";
+
+                comandoAEjecutar.Parameters.Clear();
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxID", auxProducto.IdProducto));
+
+                if (conexionALaBase.State != ConnectionState.Open)
+                {
+                    conexionALaBase.Open();
+                }
+
+                comandoAEjecutar.ExecuteNonQuery();
+
+                exito = true;
+            }
+            catch(Exception error)
+            {
+                exito = false;
+                throw error;
+            }
+            finally
+            {
+                if (conexionALaBase.State != ConnectionState.Closed)
+                {
+                    conexionALaBase.Close();
+                }
+            }
+            return exito;
+
         }
 
     }
