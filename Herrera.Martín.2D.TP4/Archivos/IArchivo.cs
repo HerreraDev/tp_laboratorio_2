@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Archivos
 {
-    public class Class1
+    interface IArchivo <T>
     {
+        bool GenerarTicketTxt(string archivo, T datos);
+
     }
 }

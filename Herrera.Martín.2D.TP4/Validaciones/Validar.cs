@@ -11,20 +11,57 @@ namespace Validaciones
     {
 
         /// <summary>
+        /// Valida que la cantidad ingresada sea correcta
+        /// </summary>
+        /// <param name="auxNumero"></param>
+        /// <returns>retorna el numero parseado o lanza una excepcion</returns>
+        public static int ValidarCantidad(string auxNumero)
+        {
+            int parseado = ValidarEnteros(auxNumero);
+            if (parseado > 0)
+            {
+                return parseado;
+            }
+            else
+            {
+                throw new DatosErroneosException("La cantidad ingresada debe ser mayor a 0 y no de contener letras");
+            }
+        }
+
+        /// <summary>
+        /// Valida que el precio ingresado sea correcta
+        /// </summary>
+        /// <param name="auxNumero"></param>
+        /// <returns>retorna el numero parseado o lanza una excepcion</returns>
+        public static double ValidarPrecio(string auxNumero)
+        {
+            double parseado = ValidarDouble(auxNumero);
+            if (parseado > 0)
+            {
+                return parseado;
+            }
+            else
+            {
+                throw new DatosErroneosException("El precio ingresado debe ser mayor a 0 y no de contener letras");
+            }
+        }
+
+
+        /// <summary>
         /// Valida que sea entero
         /// </summary>
         /// <param name="auxNumero"></param>
         /// <returns></returns>
-        public static int Cantidad(string auxNumero)
+        public static int ValidarEnteros(string auxNumero)
         {
-            int exito = -1;
+            int exito;
             if (int.TryParse(auxNumero, out int parseado) && parseado > 0)
             {
                 exito = parseado;
             }
             else 
             {
-                throw new DatosErroneosException("La cantidad debe ser mayor a cero y no puede ser texto");
+                exito = -1;
             }
             return exito;
         }
@@ -34,16 +71,16 @@ namespace Validaciones
         /// </summary>
         /// <param name="auxNumero"></param>
         /// <returns></returns>
-        public static double Precio(string auxNumero)
+        public static double ValidarDouble(string auxNumero)
         {
-            double exito = -1;
+            double exito;
             if (double.TryParse(auxNumero, out double parseado) && parseado > 0)
             {
                 exito = parseado;
             }
             else
             {
-                throw new DatosErroneosException("El precio debe ser mayor a 0 y no puede tener texto");
+                exito = -1;
             }
             return exito;
         }

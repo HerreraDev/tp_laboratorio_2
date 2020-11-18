@@ -35,22 +35,29 @@ namespace Formularios
                 {
                     Software auxSoft = new Software(this.ObtenerUltimoId() + 1,
                         this.txt_Nombre.Text, 
-                        Validar.Precio(this.txt_Precio.Text), 
-                        Validar.Cantidad(this.txt_Cantidad.Text), 
+                        Validar.ValidarPrecio(this.txt_Precio.Text), 
+                        Validar.ValidarCantidad(this.txt_Cantidad.Text), 
                         Producto.ETipoDeProducto.software);
 
                     //Inserto a la base
-                    ManejoBaseDeDatos.InsertarALaBase(auxSoft);
+                    if (ManejoBaseDeDatos.InsertarALaBase(auxSoft))
+                        MessageBox.Show("Producto ingresado");
+
+                    Producto.Guardar(auxSoft);
                 }
                 else if (this.ckbx_Hardware.Checked && !(this.ckbx_Software.Checked) && this.txt_Nombre.Text != string.Empty)
                 {
                     Hardware auxHard = new Hardware(this.ObtenerUltimoId() + 1,
-                        this.txt_Nombre.Text, Validar.Precio(this.txt_Precio.Text), 
-                        Validar.Cantidad(this.txt_Cantidad.Text),
+                        this.txt_Nombre.Text, Validar.ValidarPrecio(this.txt_Precio.Text), 
+                        Validar.ValidarCantidad(this.txt_Cantidad.Text),
                         Producto.ETipoDeProducto.hardware);
 
                     //Inserto a la base
-                    ManejoBaseDeDatos.InsertarALaBase(auxHard);
+                    if (ManejoBaseDeDatos.InsertarALaBase(auxHard))
+                        MessageBox.Show("Producto ingresado");
+
+                    Producto.Guardar(auxHard);
+
                 }
                 else
                 {
@@ -96,7 +103,7 @@ namespace Formularios
 
         private void btn_Refrescar_Click(object sender, EventArgs e)
         {
-            if (hiloRefrescar is null)
+            if (hiloRefrescar is null || !(hiloRefrescar.IsAlive))
             {
                 this.hiloRefrescar = new Thread(refrescarDataGridViewProductos);
                 hiloRefrescar.Start();
@@ -108,7 +115,6 @@ namespace Formularios
             if (hiloRefrescar.IsAlive)
             {
                 hiloRefrescar.Abort();
-                hiloRefrescar = null;
             }
         }
 

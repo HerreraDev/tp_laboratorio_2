@@ -4,3 +4,10 @@ C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entid
 C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\obj\Debug\Entidades.dll
 C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\obj\Debug\Entidades.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Validaciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Excepciones.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Validaciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Excepciones.pdb
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Archivos.dll
+C:\Users\marti\Desktop\tps labo II\tp_laboratorio_2\Herrera.Martín.2D.TP4\Entidades\bin\Debug\Archivos.pdb

@@ -22,7 +22,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder datosProducto = new StringBuilder();
-            datosProducto.AppendLine("Software:");
+            datosProducto.AppendLine("Hardware:");
             datosProducto.AppendLine(base.ToString());
             datosProducto.AppendLine("---------------------------------------------------------");
 

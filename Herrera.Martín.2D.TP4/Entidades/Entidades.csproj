@@ -47,5 +47,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Software.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{b40082bd-26e4-486a-a863-bad4e9f5ae31}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validaciones\Validaciones.csproj">
+      <Project>{3dca243c-8f2e-44fb-b783-7c13bd642aa1}</Project>
+      <Name>Validaciones</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

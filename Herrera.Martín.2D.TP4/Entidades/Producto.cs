@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Validaciones;
+using Archivos;
 
 namespace Entidades
 {
@@ -47,6 +49,7 @@ namespace Entidades
         public int IdProducto
         {
             get { return this.idProducto; }
+            set { this.idProducto = value; }
         }
         public string NombreProducto
         {
@@ -85,6 +88,16 @@ namespace Entidades
 
             return datosProducto.ToString();
         }
+
+        public static bool Guardar(Producto auxProd)
+        {
+            string archivo = AppDomain.CurrentDomain.BaseDirectory + "UltimoProductoAgregado.txt";
+
+            Texto auxParaEscribir = new Texto();
+
+            return auxParaEscribir.GenerarTicketTxt(archivo, auxProd.ToString());
+        }
+
 
     }
 }

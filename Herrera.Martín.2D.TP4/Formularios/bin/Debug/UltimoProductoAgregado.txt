@@ -1,0 +1,9 @@
+Software:
+ID: 14
+Nombre: sfot2
+Precio: 323
+Cantidad: 2
+Tipo: software
+
+---------------------------------------------------------
+

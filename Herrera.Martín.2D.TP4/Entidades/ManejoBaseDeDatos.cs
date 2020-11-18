@@ -11,21 +11,24 @@ namespace Entidades
     public static class ManejoBaseDeDatos
     {
         static SqlConnection conexionALaBase;
-        static SqlCommand comandoAEjecutar;
         static ManejoBaseDeDatos()
         {
             conexionALaBase = new SqlConnection();
             conexionALaBase.ConnectionString = "Data Source=.\\sqlexpress; Initial Catalog=TP4; Integrated Security=True;";
-            comandoAEjecutar = new SqlCommand();
-            comandoAEjecutar.Connection = conexionALaBase;
-            comandoAEjecutar.CommandType = CommandType.Text;
+
         }
         public static List<Producto> TraerProductos()
         {
+            SqlCommand comandoAEjecutar;
+            comandoAEjecutar = new SqlCommand();
+
             try
             {
                 List<Producto> listaDeProductos = new List<Producto>();
-                comandoAEjecutar.CommandText = "select * from Productos";
+
+                comandoAEjecutar.Connection = conexionALaBase;
+                comandoAEjecutar.CommandType = CommandType.Text;
+                comandoAEjecutar.CommandText = "select * from Producto";
 
                 conexionALaBase.Open();
 
@@ -62,14 +65,19 @@ namespace Entidades
 
         public static bool InsertarALaBase(Producto auxProd)
         {
+            SqlCommand comandoAEjecutar;
+            comandoAEjecutar = new SqlCommand();
             bool exito = false;
             try
             {
-                comandoAEjecutar.CommandText = "Insert into Productos(idProducto,nombre,precio, cantidad, tipo)" +
-                "values(@auxId,@auxNombre,@auxPrecio, @auxCantidad, @auxTipo)"; ;
+                comandoAEjecutar.Connection = conexionALaBase;
+                comandoAEjecutar.CommandType = CommandType.Text;
+
+                comandoAEjecutar.CommandText = "Insert into Producto(nombre,precio, cantidad, tipo)" +
+                "values(@auxNombre,@auxPrecio, @auxCantidad, @auxTipo)"; ;
 
                 comandoAEjecutar.Parameters.Clear();
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", auxProd.IdProducto));
+                //comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", auxProd.IdProducto));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxProd.NombreProducto));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxProd.Precio));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxProd.Cantidad));
