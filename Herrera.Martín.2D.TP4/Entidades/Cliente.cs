@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Validaciones;
 namespace Entidades
 {
+    [Serializable]
     public class Cliente
     {
-        public int idCliente;
-        public string nombre;
-        public string apellido;
+         int idCliente;
+         string nombre;
+        
+        string apellido;
 
         /// <summary>
         /// Constructor por defecto
@@ -73,5 +75,13 @@ namespace Entidades
             }
         }
 
+        public override string ToString()
+        {
+            StringBuilder cliente = new StringBuilder();
+
+            cliente.AppendLine($"Apellido y nombre: {this.apellido}, {this.nombre} ");
+
+            return cliente.ToString();
+        }
     }
 }

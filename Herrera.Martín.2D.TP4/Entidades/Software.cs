@@ -71,8 +71,8 @@ namespace Entidades
         public override string ToStringParaConsola()
         {
             StringBuilder datosProducto = new StringBuilder();
-            datosProducto.AppendLine(base.ToStringParaConsola() + $"" +
-                $"Licencia: {this.LicenciaDelSoftware}");
+            datosProducto.AppendLine(base.ToStringParaConsola());
+            datosProducto.AppendLine($"Licencia: {this.LicenciaDelSoftware}");
             datosProducto.AppendLine("---------------------------------------------------------");
 
             return datosProducto.ToString();

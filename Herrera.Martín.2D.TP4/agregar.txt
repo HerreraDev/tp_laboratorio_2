@@ -1,7 +1,0 @@
-agregar el if conexion.open en los metodos de sql y el command no instanciarlo en el constructor estatico.
-
-en una clase estatica venta o inventario, en el constructor cargar una lista de productos con la funcion de traer productos de la base de datos.
-
-los cathc van de lo especifico, a lo general.
-
-lo de delivery es lanzar otro thread que tiene un metodo que chequea si hay algun txt en alguna carpeta, si hay algun file, lo levanta, lo entrega y toma el siguiente.

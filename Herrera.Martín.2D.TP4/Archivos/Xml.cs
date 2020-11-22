@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,13 +29,49 @@ namespace Archivos
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception exc)
             {
 
-                throw new ArchivosException("Se produjo  un error al guarda  el archivo XML");
+                //throw new ArchivosException("Se produjo  un error al guarda  el archivo XML");
+                throw exc;
             }
 
             return exitoAlGuardar;
+        }
+
+        /// <summary>
+        /// Intentara leer un archivo XML
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <param name="datos"></param>
+        /// <returns>true si lo leyo con exito, de lo contrario falso</returns>
+        public bool Leer(string archivo, out T datos)
+        {
+            bool exitoAlLeer = false;
+
+            datos = default(T);
+
+            try
+            {
+                if (File.Exists(archivo))
+                {
+                    using (XmlTextReader auxReader = new XmlTextReader(archivo))
+                    {
+                        XmlSerializer auxLector = new XmlSerializer(typeof(T));
+
+                        datos = (T)auxLector.Deserialize(auxReader);
+
+                        exitoAlLeer = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new ArchivosException("Se produjo un error al leer el archivo XML");
+            }
+
+            return exitoAlLeer;
         }
     }
 }

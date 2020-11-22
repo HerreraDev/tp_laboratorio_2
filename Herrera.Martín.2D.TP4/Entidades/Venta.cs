@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Archivos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,19 +65,33 @@ namespace Entidades
     
 
 
-        public static bool PrecioFinalCalculado(Venta venta)
+        public static double PrecioFinalCalculado(List<Producto> carrito)
         {
-            if (venta != null)
+            double precioFinal = -1;
+            if (carrito != null)
             {
-                foreach (Producto item in venta.ListaProductos)
+                foreach (Producto item in carrito)
                 {
-                    venta.precioFinal += item.Precio;
+                    precioFinal += item.Precio;
                 }
-
-                return true;
             }
 
-            return false;
+            return precioFinal;
+        }
+
+        public static bool SerializarVentas()
+        {
+            string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Ventas.xml");
+
+            Xml<List<Venta>> auxXmlUniversidad = new Xml<List<Venta>>();
+            if(auxXmlUniversidad.GuardarEnArchivo(ubicacionArchivo, Stock.VentasRealizadas))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -65,6 +65,15 @@ namespace Entidades
             return datosProducto.ToString();
         }
 
+        public override string ToStringParaConsola()
+        {
+            StringBuilder datosProducto = new StringBuilder();
+            datosProducto.AppendLine(base.ToStringParaConsola());
+            datosProducto.AppendLine($"Numero de parte: {this.NumeroDeParte}");
+            datosProducto.AppendLine("---------------------------------------------------------");
+
+            return datosProducto.ToString();
+        }
         /// <summary>
         /// Verifica que el producto este en la lista
         /// </summary>
