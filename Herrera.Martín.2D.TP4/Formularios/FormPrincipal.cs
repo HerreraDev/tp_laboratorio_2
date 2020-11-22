@@ -16,6 +16,9 @@ namespace Formularios
 {
     public partial class FormPrincipal : Form
     {
+        /// <summary>
+        /// Hilo que se lanzara para que ejecute el metodo que actualice los DataGridView de forma constante
+        /// </summary>
         Thread hiloRefrescar;
         public FormPrincipal()
         {
@@ -31,10 +34,11 @@ namespace Formularios
             this.btn_CancelarRefresco.Enabled = false;
         }
 
-        
+
 
         /// <summary>
-        /// En este boton se lanza el hilo nuevo con el metodo para refrescar los datagrid
+        /// En este boton se lanza el hilo nuevo con el metodo para refrescar los DataGridView
+        /// </summary>
         private void btn_Refrescar_Click(object sender, EventArgs e)
         {
             
@@ -48,6 +52,9 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Se cancela el hilo de refresco automatico
+        /// </summary>
         private void btn_CancelarRefresco_Click(object sender, EventArgs e)
         {
             if (hiloRefrescar.IsAlive)
@@ -60,7 +67,7 @@ namespace Formularios
 
         /// <summary>
         /// Metodo que se ejecuta en un hilo secundario
-        /// refresca los datagridview cada 4 segundos
+        /// refresca los DataGridView cada 4 segundos
         /// trayendo la informacion de la base de datos
         /// </summary>
         private void refrescarDataGridViewProductos()
@@ -116,6 +123,11 @@ namespace Formularios
             {
                 MessageBox.Show("Producto insertado y agregado al log.txt");
             }
+            else
+            {
+                MessageBox.Show("Se cancelo la operacion");
+            }
+
 
         }
 
@@ -126,6 +138,10 @@ namespace Formularios
             if (formInsertarHardware.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Producto insertado y agregado al log.txt");
+            }
+            else
+            {
+                MessageBox.Show("Se cancelo la operacion");
             }
         }
     }

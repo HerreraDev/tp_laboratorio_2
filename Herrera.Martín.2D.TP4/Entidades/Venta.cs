@@ -15,6 +15,7 @@ namespace Entidades
         List<Producto> listaProductos;
         double precioFinal;
 
+        #region Constructores
         /// <summary>
         /// Constructor por defecto
         /// </summary>
@@ -30,15 +31,17 @@ namespace Entidades
         /// <param name="cliente"></param>
         /// <param name="listaProductos"></param>
         /// <param name="montoTotal"></param>
-        public Venta(int idVenta, Cliente cliente, List<Producto> listaProductos, double montoTotal):this()
+        public Venta(int idVenta, Cliente cliente, List<Producto> listaProductos, double montoTotal) : this()
         {
             this.IdVenta = idVenta;
             this.Cliente = cliente;
             this.ListaProductos = listaProductos;
             this.PrecioFinal = montoTotal;
         }
+        #endregion 
 
 
+        #region Propiedades
         public int IdVenta
         {
             get { return this.idVenta; }
@@ -62,12 +65,36 @@ namespace Entidades
             get { return this.precioFinal; }
             set { this.precioFinal = value; }
         }
-    
+        #endregion
 
+        /// <summary>
+        /// Override del ToString para ver los datos del producto
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder datosVenta = new StringBuilder();
+            datosVenta.AppendLine("Datos de la venta: ");
+            datosVenta.AppendLine($"ID: {this.IdVenta}");
+            datosVenta.AppendLine($"Cliente: {this.Cliente.ToString()}");
+            datosVenta.AppendLine("Productos elegidos:");
+            foreach (Producto item in ListaProductos)
+            {
+                datosVenta.AppendLine(item.ToString());
+            }
+            datosVenta.AppendLine($"Monto total: {this.PrecioFinal}");
 
+            return datosVenta.ToString();
+        }
+
+        /// <summary>
+        /// Calcula el precio final de la venta
+        /// </summary>
+        /// <param name="carrito"></param>
+        /// <returns>0 si hubo error, double con el precio final</returns>
         public static double PrecioFinalCalculado(List<Producto> carrito)
         {
-            double precioFinal = -1;
+            double precioFinal = 0;
             if (carrito != null)
             {
                 foreach (Producto item in carrito)
@@ -79,12 +106,16 @@ namespace Entidades
             return precioFinal;
         }
 
+        /// <summary>
+        /// Serializa en un archivo xml las ventas existentes en la lista de ventas
+        /// </summary>
+        /// <returns></returns>
         public static bool SerializarVentas()
         {
             string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Ventas.xml");
 
             Xml<List<Venta>> auxXmlUniversidad = new Xml<List<Venta>>();
-            if(auxXmlUniversidad.GuardarEnArchivo(ubicacionArchivo, Stock.VentasRealizadas))
+            if (auxXmlUniversidad.GuardarEnArchivo(ubicacionArchivo, Stock.VentasRealizadas))
             {
                 return true;
             }
@@ -92,6 +123,45 @@ namespace Entidades
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Descuenta la cantidad del producto elegido, actualiza los items en la base de datos y
+        /// agrega la venta a la lista de ventas
+        /// </summary>
+        /// <param name="ventaAConfirmar"></param>
+        public static void ConfirmarCompra(Venta ventaAConfirmar)
+        {
+
+            //Descuento 1 la cantidad a los productos elegidos
+            foreach (Producto item in ventaAConfirmar.ListaProductos)
+            {
+                if (item.GetType() == typeof(Software))
+                {
+                    Stock.ListaProductosSoftware[Stock.GetIndiceProducto((Software)item)].Cantidad--;
+                }
+                else
+                {
+                    Stock.ListaProductosHardware[Stock.GetIndiceProducto((Hardware)item)].Cantidad--;
+                }
+            }
+
+            //Actualizo la cantidad de cada producto en la Base de Datos
+
+            foreach (Producto item in ventaAConfirmar.ListaProductos)
+            {
+                if (item.GetType() == typeof(Software))
+                {
+                    ManejoBaseDeDatos.ActualizarProductoVendido((Software)item);
+                }
+                else
+                {
+                    ManejoBaseDeDatos.ActualizarProductoVendido((Hardware)item);
+                }
+            }
+
+            //Añado venta a la lista de ventas
+            Stock.VentasRealizadas.Add(ventaAConfirmar);
         }
     }
 }

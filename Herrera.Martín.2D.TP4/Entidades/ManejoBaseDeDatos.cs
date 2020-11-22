@@ -11,12 +11,21 @@ namespace Entidades
     public static class ManejoBaseDeDatos
     {
         static SqlConnection conexionALaBase;
+        
+        /// <summary>
+        /// Constructor estatico 
+        /// </summary>
         static ManejoBaseDeDatos()
         {
             conexionALaBase = new SqlConnection();
             conexionALaBase.ConnectionString = "Data Source=.\\sqlexpress; Initial Catalog=TP4; Integrated Security=True;";
 
         }
+
+        /// <summary>
+        /// Trae los productos de la tabla Hardware
+        /// </summary>
+        /// <returns></returns>
         public static List<Hardware> ObtenerProductosHardware()
         {
             SqlCommand comandoAEjecutar;
@@ -59,6 +68,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Trae los productos de la tabla Software
+        /// </summary>
+        /// <returns></returns>
         public static List<Software> ObtenerProductosSoftware()
         {
             SqlCommand comandoAEjecutar;
@@ -101,8 +114,12 @@ namespace Entidades
                 }
             }
         }
-        
 
+        /// <summary>
+        /// Utilizado para insertar productos a la tabla Hardware en la base de datos
+        /// </summary>
+        /// <param name="auxHardware"></param>
+        /// <returns></returns>
         public static bool InsertarHardware(Hardware auxHardware)
         {
             SqlCommand comandoAEjecutar;
@@ -146,6 +163,11 @@ namespace Entidades
             return exito;
         }
 
+        /// <summary>
+        /// Utilizado para insertar productos a la tabla Software en la base de datos
+        /// </summary>
+        /// <param name="auxSoftware"></param>
+        /// <returns></returns>
         public static bool InsertarSoftware(Software auxSoftware)
         {
             SqlCommand comandoAEjecutar;
@@ -190,20 +212,37 @@ namespace Entidades
             return exito;
         }
 
-        public static bool EliminarProducto(Producto auxProducto)
+        /// <summary>
+        /// Realiza un update en la base de datos, actualizando el campo cantidad 
+        /// Es utilizado cuando se realizan ventas
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="productoParaActualizar"></param>
+        /// <returns></returns>
+        public static bool ActualizarProductoVendido<T>(T productoParaActualizar) where T : Producto
         {
             SqlCommand comandoAEjecutar;
             comandoAEjecutar = new SqlCommand();
-            bool exito;
+            bool exito = false;
             try
             {
                 comandoAEjecutar.Connection = conexionALaBase;
                 comandoAEjecutar.CommandType = CommandType.Text;
 
-                comandoAEjecutar.CommandText = "Delete Producto where idProducto = @auxID";
+                if (productoParaActualizar.GetType() == typeof(Software))
+                {
+                    comandoAEjecutar.CommandText = "Update Software Set cantidad = @auxCantidad" + " " + 
+                    "where idSoftware = @auxId"; 
+                }
+                else
+                {
+                    comandoAEjecutar.CommandText = "Update Hardware Set cantidad = @auxCantidad" + " " +
+                    "where idHardware = @auxId";
+                }
 
                 comandoAEjecutar.Parameters.Clear();
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxID", auxProducto.IdProducto));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", productoParaActualizar.IdProducto));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", productoParaActualizar.Cantidad));
 
                 if (conexionALaBase.State != ConnectionState.Open)
                 {
@@ -211,23 +250,14 @@ namespace Entidades
                 }
 
                 comandoAEjecutar.ExecuteNonQuery();
-
                 exito = true;
+
             }
-            catch (Exception error)
+            catch(Exception error)
             {
-                exito = false;
                 throw error;
             }
-            finally
-            {
-                if (conexionALaBase.State != ConnectionState.Closed)
-                {
-                    conexionALaBase.Close();
-                }
-            }
             return exito;
-
         }
 
 

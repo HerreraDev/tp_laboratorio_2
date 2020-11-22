@@ -11,15 +11,17 @@ namespace Entidades
     {
          int idCliente;
          string nombre;
-        
-        string apellido;
+         string apellido;
 
+        #region Constructores
         /// <summary>
         /// Constructor por defecto
         /// </summary>
         public Cliente()
         {
-
+            this.idCliente = -1;
+            this.nombre = "";
+            this.apellido = "";
         }
 
         /// <summary>
@@ -34,8 +36,9 @@ namespace Entidades
             this.nombre = nombre;
             this.apellido = apellido;
         }
+        #endregion
 
-
+        #region Propiedades
         public int IdCliente
         {
             get
@@ -74,12 +77,17 @@ namespace Entidades
                     this.apellido = value;
             }
         }
+        #endregion
 
+        /// <summary>
+        /// Override del ToString para mostar los datos del cliente
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder cliente = new StringBuilder();
 
-            cliente.AppendLine($"Apellido y nombre: {this.apellido}, {this.nombre} ");
+            cliente.AppendLine($"ID: {this.IdCliente} | Apellido y nombre: {this.apellido}, {this.nombre} ");
 
             return cliente.ToString();
         }

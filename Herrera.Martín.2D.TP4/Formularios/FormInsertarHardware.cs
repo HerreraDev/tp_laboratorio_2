@@ -14,10 +14,19 @@ using Validaciones;
 
 namespace Formularios
 {
+    /// <summary>
+    /// Delegado que permite metodos que devuelvan bool y que reciban un producto
+    /// </summary>
+    /// <param name="auxHard"></param>
+    /// <returns></returns>
     public delegate bool Insert(Producto auxHard);
 
     public partial class FormInsertarHardware : Form
     {
+        /// <summary>
+        /// Evento del tipo de delegado Insert
+        /// Insertara el producto en la base y lo agregara al log de productos agregados
+        /// </summary>
         public static event Insert realizarInsert;
 
         public FormInsertarHardware()
@@ -36,9 +45,6 @@ namespace Formularios
                 if (double.TryParse(this.txt_Precio.Text, out double precio) && int.TryParse(this.txt_Cantidad.Text, out int cantidad) && int.TryParse(this.txt_Cantidad.Text, out int numeroDeParte))
                 {
                     Hardware auxHard = new Hardware(this.txt_Nombre.Text, precio, cantidad, numeroDeParte);
-
-                    //Inserto a la base
-                    //Guardo el producto en un txt
 
                     if(realizarInsert.Invoke(auxHard))
                     {

@@ -32,8 +32,7 @@ namespace Archivos
             catch (Exception exc)
             {
 
-                //throw new ArchivosException("Se produjo  un error al guarda  el archivo XML");
-                throw exc;
+                throw new ArchivosException("Se produjo  un error al guarda  el archivo XML");
             }
 
             return exitoAlGuardar;

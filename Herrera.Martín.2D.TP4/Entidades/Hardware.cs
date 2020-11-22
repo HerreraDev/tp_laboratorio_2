@@ -10,6 +10,8 @@ namespace Entidades
     public class Hardware : Producto
     {
         int numeroDeParte;
+
+        #region Constructor
         /// <summary>
         /// Constructor sin parametros
         /// </summary>
@@ -34,6 +36,7 @@ namespace Entidades
 
         /// <summary>
         /// Constructor utilizado para cuando se inserten datos a la base de datos
+        /// No se usa el id ya que es autoincremental
         /// </summary>
         /// <param name="nombreProducto"></param>
         /// <param name="precio"></param>
@@ -43,17 +46,21 @@ namespace Entidades
         {
             this.NumeroDeParte = numeroDeParte;
         }
+        #endregion
 
+        #region Propiedades
         public int NumeroDeParte
         {
             get { return this.numeroDeParte; }
             set { this.numeroDeParte = Validar.ValidarNumeroDeParte(value.ToString()); }
         }
+        #endregion  
+
 
         /// <summary>
         /// Override del ToString
         /// </summary>
-        /// <returns></returns>
+        /// <returns>string con los datos</returns>
         public override string ToString()
         {
             StringBuilder datosProducto = new StringBuilder();
@@ -65,6 +72,11 @@ namespace Entidades
             return datosProducto.ToString();
         }
 
+        /// <summary>
+        /// Metodo para cuando se muestre por consola un producto
+        /// Utilizado para que se vea mas prolijo
+        /// </summary>
+        /// <returns>string con los datos</returns>
         public override string ToStringParaConsola()
         {
             StringBuilder datosProducto = new StringBuilder();
@@ -74,6 +86,7 @@ namespace Entidades
 
             return datosProducto.ToString();
         }
+
         /// <summary>
         /// Verifica que el producto este en la lista
         /// </summary>
@@ -105,6 +118,12 @@ namespace Entidades
             return !(productos == auxProducto);
         }
 
+        /// <summary>
+        /// Inserta un producto a la base de datos
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="auxProducto"></param>
+        /// <returns></returns>
         public static bool operator +(List<Hardware> productos, Hardware auxProducto)
         {
             bool exito;

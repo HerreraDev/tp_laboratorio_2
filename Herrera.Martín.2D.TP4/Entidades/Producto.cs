@@ -5,9 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Validaciones;
 using Archivos;
+using System.Xml.Serialization;
 
 namespace Entidades
 {
+    [Serializable]
+    [XmlInclude(typeof(Hardware))]
+    [XmlInclude(typeof(Software))]
     public abstract class Producto
     {
 

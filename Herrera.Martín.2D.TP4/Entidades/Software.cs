@@ -9,9 +9,13 @@ namespace Entidades
     public class Software : Producto
     {
         string licenciaDelSoftware;
+
+        /// <summary>
+        /// Constructor sin parametros
+        /// </summary>
         public Software()
         {
-
+            
         }
 
         /// <summary>
@@ -30,6 +34,7 @@ namespace Entidades
 
         /// <summary>
         /// Constructor utilizado para cuando se inserten datos a la base de datos
+        /// No se necesita el id ya que es autoincremental
         /// </summary>
         /// <param name="nombreProducto"></param>
         /// <param name="precio"></param>
@@ -40,6 +45,7 @@ namespace Entidades
             this.licenciaDelSoftware = licenciaDelSoftware;
         }
 
+        #region Propiedades
         public string LicenciaDelSoftware
         {
             get { return this.licenciaDelSoftware; }
@@ -51,6 +57,7 @@ namespace Entidades
                     this.licenciaDelSoftware = value;
             }
         }
+        #endregion
 
 
         /// <summary>
@@ -68,6 +75,11 @@ namespace Entidades
             return datosProducto.ToString();
         }
 
+        /// <summary>
+        /// Override del metodo ToStringParaConsola utilizado para que cuando se muestre por consola
+        /// quede mas prolijo
+        /// </summary>
+        /// <returns></returns>
         public override string ToStringParaConsola()
         {
             StringBuilder datosProducto = new StringBuilder();
@@ -109,6 +121,13 @@ namespace Entidades
             return !(productos == auxProducto);
         }
 
+
+        /// <summary>
+        /// Inserta un producto a la base de datos
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="auxProducto"></param>
+        /// <returns></returns>
         public static bool operator +(List<Software> productos, Software auxProducto)
         {
             bool exito;

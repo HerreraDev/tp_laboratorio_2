@@ -94,5 +94,31 @@ namespace Entidades
             }
             return auxIndice;
         }
+
+        public static int GetIndiceProducto<T>(T producto) where T : Producto
+        {
+            if(producto.GetType() == typeof(Software))
+            {
+                for (int i = 0; i < ListaProductosSoftware.Count; i++)
+                {
+                    if(producto.IdProducto == ListaProductosSoftware[i].IdProducto)
+                    {
+                        return i;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ListaProductosHardware.Count; i++)
+                {
+                    if (producto.IdProducto == ListaProductosHardware[i].IdProducto)
+                    {
+                        return i;
+                    }
+                }
+            }
+
+            return -1;
+        }
     }
 }

@@ -16,6 +16,10 @@ namespace Formularios
 
     public partial class FormInsertarSoftware : Form
     {
+        /// <summary>
+        /// Evento del tipo de delegado Insert
+        /// Insertara el producto en la base y lo agregara al log de productos agregados
+        /// </summary>
         public static event Insert realizarInsert;
 
         public FormInsertarSoftware()
@@ -34,8 +38,6 @@ namespace Formularios
                 {
                     Software auxSoft = new Software(this.txt_Nombre.Text, precio, cantidad, this.txt_Licencia.Text);
 
-                    //Inserto a la base
-                    //Guardo el producto en un txt
 
                     if (realizarInsert.Invoke(auxSoft))
                     {
@@ -60,6 +62,11 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Intenta insertar el producto en la base de datos
+        /// </summary>
+        /// <param name="auxSoft"></param>
+        /// <returns></returns>
         private bool InsertarProducto(Producto auxSoft)
         {
             bool exito = false;

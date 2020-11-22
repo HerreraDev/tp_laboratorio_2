@@ -14,18 +14,7 @@ namespace TestUnitario
         [TestMethod]
         public void TestListaProductos()
         {
-            Assert.IsNotNull(Stock.ListaProductos);
-        }
-
-        /// <summary>
-        /// Testea si se podria eliminar un producto
-        /// </summary>
-        [TestMethod]
-        public void TestEliminarProducto()
-        {
-            Software s = new Software(1, "Prod", 20, 2, Producto.ETipoDeProducto.hardware);
-
-            ManejoBaseDeDatos.EliminarProducto(s);
+            Assert.IsNotNull(Stock.ListaProductosHardware);
         }
 
         /// <summary>
@@ -35,9 +24,8 @@ namespace TestUnitario
         [ExpectedException(typeof(DatosErroneosException))]
         public void TestDatosErroneosException()
         {
-            Software s = new Software(1, "Prod", -20, 2, Producto.ETipoDeProducto.hardware);
+            Software s = new Software("testSoft",-10,20,"SDAFEGRDDD");
 
-            ManejoBaseDeDatos.EliminarProducto(s);
         }
 
 

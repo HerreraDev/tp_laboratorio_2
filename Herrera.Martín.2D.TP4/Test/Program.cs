@@ -13,7 +13,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            /*try
+            try
             {
                Console.WriteLine("Testeando insertar productos a la base de datos: ");
 
@@ -65,30 +65,21 @@ namespace Test
             {
                 Console.WriteLine(errorGeneral.Message);
             }
-            Console.WriteLine("----------------------------------------------------------------------------------------------------");
-            Console.WriteLine("Toque una tecla para continuar");
-            Console.ReadKey();
-            Console.Clear();
-            */
+            LimpiarPantalla();
 
             try
             {
-                //Genero un numero random que servida de indice para elegir un cliente aleatorio de la lista
+                Console.WriteLine("Testeando generar una venta y serializarla");
+                Console.WriteLine("");
+
+                //Genero numeros random que serviran de indice para elegir un cliente aleatorio y productos aleatorios
                 Random random = new Random();
                 int clienteRandom = random.Next(0, Stock.Clientes.Count-1);
-                Console.WriteLine($"El cliente que realizara la compra es: {Stock.Clientes[clienteRandom].ToString()}");
-
                 int productoRandom = random.Next(0, Stock.ListaProductosSoftware.Count - 1);
                 int producto2Random = random.Next(0, Stock.ListaProductosHardware.Count - 1);
 
                 //Lista que simularia un carrito ya que almacena los prodcutos de la venta
                 List<Producto> listaTestVenta = new List<Producto>();
-
-                Console.WriteLine("");
-                Console.WriteLine("Los productos elegidos son: ");
-                Console.WriteLine($"{Stock.ListaProductosSoftware[productoRandom]}");
-                Console.WriteLine($"{Stock.ListaProductosHardware[producto2Random]}");
-
 
                 //Agrego productos random a el carrito
                 listaTestVenta.Add(Stock.ListaProductosSoftware[productoRandom]);
@@ -100,7 +91,15 @@ namespace Test
                                      listaTestVenta,
                                      Venta.PrecioFinalCalculado(listaTestVenta));
 
-                Stock.VentasRealizadas.Add(v1);
+                //Realiza el descuento a la cantidad del producto elejido
+                //Actualiza la base de datos respecto a la cantidad descontada
+                //Añade a la lista de ventas dicha venta para luego ser serializada en un archivo xml
+                Venta.ConfirmarCompra(v1);
+
+                //Datos de la venta
+                Console.WriteLine(v1.ToString());
+
+                //Serializo la lista de ventas
                 if(Venta.SerializarVentas())
                     Console.WriteLine("Ventas serializadas en archivo xml");
 
@@ -111,9 +110,28 @@ namespace Test
             }
             catch (Exception errorGeneral)
             {
-                //Console.WriteLine(errorGeneral.Message);
-                throw errorGeneral;
+                Console.WriteLine(errorGeneral.Message);
             }
+            LimpiarPantalla();
+
+            try
+            {
+                Console.WriteLine("Testendo DatosErroneosException: ");
+                Console.WriteLine("");
+                Console.WriteLine("Se intentara cargar un numero negativo a el precio");
+
+                Software softTest = new Software("SoftTesting",-10,10,"FSDFSDFF");
+            }
+            catch(DatosErroneosException datosErroneos)
+            {
+                Console.WriteLine(datosErroneos.Message);
+            }
+            LimpiarPantalla();
+
+        }
+
+        private static void LimpiarPantalla()
+        {
             Console.WriteLine("----------------------------------------------------------------------------------------------------");
             Console.WriteLine("Toque una tecla para continuar");
             Console.ReadKey();
