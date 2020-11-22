@@ -1,9 +1,0 @@
-Hardware:
-ID: 30
-Nombre: soflt445
-Precio: 3
-Cantidad: 33
-Tipo: hardware
-
----------------------------------------------------------
-

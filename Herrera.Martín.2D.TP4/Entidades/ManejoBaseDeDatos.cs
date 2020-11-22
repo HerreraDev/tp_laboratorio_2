@@ -17,18 +17,18 @@ namespace Entidades
             conexionALaBase.ConnectionString = "Data Source=.\\sqlexpress; Initial Catalog=TP4; Integrated Security=True;";
 
         }
-        public static List<Producto> TraerProductos()
+        public static List<Hardware> ObtenerProductosHardware()
         {
             SqlCommand comandoAEjecutar;
             comandoAEjecutar = new SqlCommand();
 
             try
             {
-                List<Producto> listaDeProductos = new List<Producto>();
+                List<Hardware> listaDeProductos = new List<Hardware>();
 
                 comandoAEjecutar.Connection = conexionALaBase;
                 comandoAEjecutar.CommandType = CommandType.Text;
-                comandoAEjecutar.CommandText = "select * from Producto";
+                comandoAEjecutar.CommandText = "select * from Hardware";
 
                 if (conexionALaBase.State != ConnectionState.Open)
                 {
@@ -39,19 +39,9 @@ namespace Entidades
 
                 while (lector.Read())
                 {
-                    string tipo = lector["tipo"].ToString();
-
-                    switch (tipo)
-                    {
-                        case "hardware":
-                            listaDeProductos.Add(new Hardware((int)((decimal)lector["idProducto"]), lector["nombre"].ToString(), (double)lector["precio"], (int)((decimal)lector["cantidad"]), Producto.ETipoDeProducto.hardware));
-                            break;
-                        case "software":
-                            listaDeProductos.Add(new Software((int)((decimal)lector["idProducto"]), lector["nombre"].ToString(), (double)lector["precio"], (int)((decimal)lector["cantidad"]), Producto.ETipoDeProducto.software));
-                            break;
-                    }
-
+                    listaDeProductos.Add(new Hardware((int)((decimal)lector["idHardware"]), lector["nombre"].ToString(), (double)lector["precio"], (int)((decimal)lector["cantidad"]), (int)((decimal)lector["numeroDeParte"])));
                 }
+
                 return listaDeProductos;
             }
             catch (Exception ex)
@@ -69,7 +59,51 @@ namespace Entidades
             }
         }
 
-        public static bool InsertarProducto(Producto auxProducto)
+        public static List<Software> ObtenerProductosSoftware()
+        {
+            SqlCommand comandoAEjecutar;
+            comandoAEjecutar = new SqlCommand();
+
+            try
+            {
+                List<Software> listaDeProductos = new List<Software>();
+
+                comandoAEjecutar.Connection = conexionALaBase;
+                comandoAEjecutar.CommandType = CommandType.Text;
+                comandoAEjecutar.CommandText = "select * from Software";
+
+                if (conexionALaBase.State != ConnectionState.Open)
+                {
+                    conexionALaBase.Open();
+                }
+
+                SqlDataReader lector = comandoAEjecutar.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    listaDeProductos.Add(new Software((int)((decimal)lector["idSoftware"]), lector["nombre"].ToString(), (double)lector["precio"], (int)((decimal)lector["cantidad"]), lector["licenciaDelSoftware"].ToString()));
+                }
+
+
+                return listaDeProductos;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                if (conexionALaBase.State != ConnectionState.Closed)
+                {
+                    conexionALaBase.Close();
+                }
+            }
+        }
+        
+
+        public static bool InsertarHardware(Hardware auxHardware)
         {
             SqlCommand comandoAEjecutar;
             comandoAEjecutar = new SqlCommand();
@@ -79,15 +113,58 @@ namespace Entidades
                 comandoAEjecutar.Connection = conexionALaBase;
                 comandoAEjecutar.CommandType = CommandType.Text;
 
-                comandoAEjecutar.CommandText = "Insert into Producto(nombre,precio, cantidad, tipo)" +
-                "values(@auxNombre,@auxPrecio, @auxCantidad, @auxTipo)"; ;
+                comandoAEjecutar.CommandText = "Insert into Hardware(nombre,precio, cantidad, numeroDeParte)" +
+                "values(@auxNombre,@auxPrecio, @auxCantidad, @numeroDeParte)"; ;
+
+                comandoAEjecutar.Parameters.Clear();
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxHardware.NombreProducto));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxHardware.Precio));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxHardware.Cantidad));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@numeroDeParte", auxHardware.NumeroDeParte));
+
+                if (conexionALaBase.State != ConnectionState.Open)
+                {
+                    conexionALaBase.Open();
+                }
+
+                comandoAEjecutar.ExecuteNonQuery();
+                exito = true;
+            }
+            catch (Exception e)
+            {
+                exito = false;
+                throw e;
+            }
+            finally
+            {
+                if (conexionALaBase.State != ConnectionState.Closed)
+                {
+                    conexionALaBase.Close();
+                }
+            }
+
+            return exito;
+        }
+
+        public static bool InsertarSoftware(Software auxSoftware)
+        {
+            SqlCommand comandoAEjecutar;
+            comandoAEjecutar = new SqlCommand();
+            bool exito = false;
+            try
+            {
+                comandoAEjecutar.Connection = conexionALaBase;
+                comandoAEjecutar.CommandType = CommandType.Text;
+
+                comandoAEjecutar.CommandText = "Insert into Software(nombre,precio, cantidad, licenciaDelSoftware)" +
+                "values(@auxNombre,@auxPrecio, @auxCantidad, @licenciaDelSoftware)"; ;
 
                 comandoAEjecutar.Parameters.Clear();
                 //comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", auxProd.IdProducto));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxProducto.NombreProducto));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxProducto.Precio));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxProducto.Cantidad));
-                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxTipo", auxProducto.Tipo.ToString()));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxSoftware.NombreProducto));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxSoftware.Precio));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxSoftware.Cantidad));
+                comandoAEjecutar.Parameters.Add(new SqlParameter("@licenciaDelSoftware", auxSoftware.LicenciaDelSoftware));
 
                 if (conexionALaBase.State != ConnectionState.Open)
                 {
@@ -118,7 +195,7 @@ namespace Entidades
             SqlCommand comandoAEjecutar;
             comandoAEjecutar = new SqlCommand();
             bool exito;
-            try 
+            try
             {
                 comandoAEjecutar.Connection = conexionALaBase;
                 comandoAEjecutar.CommandType = CommandType.Text;
@@ -137,7 +214,7 @@ namespace Entidades
 
                 exito = true;
             }
-            catch(Exception error)
+            catch (Exception error)
             {
                 exito = false;
                 throw error;
@@ -152,6 +229,8 @@ namespace Entidades
             return exito;
 
         }
+
+
 
     }
 

@@ -1,0 +1,81 @@
+Producto de hardware:
+ID: 0
+Nombre: SSD 4.2
+Precio: 40000
+Cantidad: 42
+
+Codigo de parte: 42
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Hd
+Precio: 10
+Cantidad: 10
+
+Codigo de parte: 10
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: HDD 2.1
+Precio: 200
+Cantidad: 20
+
+Codigo de parte: 20
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Placa de video
+Precio: 1000
+Cantidad: 43
+
+Codigo de parte: 43
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Placa de video
+Precio: 1000
+Cantidad: 43
+
+Codigo de parte: 43
+---------------------------------------------------------
+
+Producto de software:
+ID: 0
+Nombre: Ea acces
+Precio: 10
+Cantidad: 3
+
+Licencia: das43asd
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Hd c2
+Precio: 240
+Cantidad: 42
+
+Codigo de parte: 42
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Hd c2
+Precio: 240
+Cantidad: 42
+
+Codigo de parte: 42
+---------------------------------------------------------
+
+Producto de hardware:
+ID: 0
+Nombre: Hd c2
+Precio: 240
+Cantidad: 42
+
+Codigo de parte: 42
+---------------------------------------------------------
+

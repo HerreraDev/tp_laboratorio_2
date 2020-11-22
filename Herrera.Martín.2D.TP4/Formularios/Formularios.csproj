@@ -46,16 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormularioProductos.cs">
+    <Compile Include="FormInsertarHardware.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioProductos.Designer.cs">
-      <DependentUpon>FormularioProductos.cs</DependentUpon>
+    <Compile Include="FormInsertarHardware.Designer.cs">
+      <DependentUpon>FormInsertarHardware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInsertarSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInsertarSoftware.Designer.cs">
+      <DependentUpon>FormInsertarSoftware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormularioProductos.resx">
-      <DependentUpon>FormularioProductos.cs</DependentUpon>
+    <EmbeddedResource Include="FormInsertarHardware.resx">
+      <DependentUpon>FormInsertarHardware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertarSoftware.resx">
+      <DependentUpon>FormInsertarSoftware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

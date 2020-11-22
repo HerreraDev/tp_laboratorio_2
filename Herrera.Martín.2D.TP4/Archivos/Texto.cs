@@ -17,7 +17,7 @@ namespace Archivos
             {
                 if (!String.IsNullOrEmpty(archivo) && !String.IsNullOrEmpty(datos))
                 {
-                    using (StreamWriter escritor = new StreamWriter(archivo, false))
+                    using (StreamWriter escritor = new StreamWriter(archivo, true))
                     {
                         escritor.WriteLine(datos);
                     }

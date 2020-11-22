@@ -10,17 +10,11 @@ namespace Entidades
 {
     public abstract class Producto
     {
-        public enum ETipoDeProducto
-        {
-            hardware,
-            software
-        }
 
         int idProducto;
         string nombreProducto;
         double precio;
         int cantidad;
-        ETipoDeProducto tipo;
 
         #region Constructores
         /// <summary>
@@ -30,18 +24,30 @@ namespace Entidades
 
         /// <summary>
         /// Constructor que llama al por defecto
+        /// Este sera utilizado para cuando se inserte un producto
         /// </summary>
         /// <param name="idProducto"></param>
         /// <param name="nombreProducto"></param>
         /// <param name="precio"></param>
         /// <param name="cantidad"></param>
-        public Producto(int idProducto, string nombreProducto, double precio, int cantidad, ETipoDeProducto tipo) : this()
+        public Producto(string nombreProducto, double precio, int cantidad) : this()
         {
-            this.IdProducto = idProducto;
             this.NombreProducto = nombreProducto;
             this.Precio = precio;
             this.Cantidad = cantidad;
-            this.Tipo = tipo;
+        }
+
+        /// <summary>
+        /// Sobrecarga del constructor que sera utilizado 
+        /// cuando se traigan los producto de la base de datos
+        /// </summary>
+        /// <param name="idProducto"></param>
+        /// <param name="nombreProducto"></param>
+        /// <param name="precio"></param>
+        /// <param name="cantidad"></param>
+        public Producto(int idProducto, string nombreProducto, double precio, int cantidad) : this(nombreProducto,precio,cantidad)
+        {
+            this.IdProducto = idProducto;
         }
         #endregion
 
@@ -49,15 +55,20 @@ namespace Entidades
         public int IdProducto
         {
             get { return this.idProducto; }
-            set { this.idProducto = Validar.ValidarEnteros(value.ToString()); }
+            set { this.idProducto = Validar.ValidarIds(value.ToString()); }
         }
         public string NombreProducto
         {
             get { return this.nombreProducto; }
             set 
             {
-                if(value!= string.Empty)
+                if(value == string.Empty)
+                    this.nombreProducto = "Error";
+                else
+                {
                     this.nombreProducto = value;
+                }
+
             }
         }
         public double Precio
@@ -73,12 +84,6 @@ namespace Entidades
 
         }
 
-        public ETipoDeProducto Tipo
-        {
-            get { return this.tipo; }
-            set { this.tipo = value; }
-
-        }
         #endregion
 
         public override string ToString()
@@ -89,7 +94,16 @@ namespace Entidades
             datosProducto.AppendLine($"Nombre: {this.NombreProducto}");
             datosProducto.AppendLine($"Precio: {this.Precio}");
             datosProducto.AppendLine($"Cantidad: {this.Cantidad}");
-            datosProducto.AppendLine($"Tipo: {this.Tipo.ToString()}");
+
+            return datosProducto.ToString();
+        }
+
+        public virtual string ToStringParaConsola()
+        {
+            StringBuilder datosProducto = new StringBuilder();
+
+            datosProducto.AppendLine($"ID: {this.IdProducto} | Nombre: {this.NombreProducto} | Precio: {this.Precio} | Cantidad: {this.Cantidad}");
+
 
             return datosProducto.ToString();
         }
@@ -101,7 +115,7 @@ namespace Entidades
         /// <returns></returns>
         public static bool Guardar(Producto auxProd)
         {
-            string archivo = AppDomain.CurrentDomain.BaseDirectory + "UltimoProductoAgregado.txt";
+            string archivo = AppDomain.CurrentDomain.BaseDirectory + "LogProductosInsertados.txt";
 
             Texto auxParaEscribir = new Texto();
 
@@ -139,22 +153,7 @@ namespace Entidades
             return !(productos==auxProducto);
         }
 
-        public static bool operator +(List<Producto> productos, Producto auxProducto)
-        {
-            bool exito;
-            if (productos != auxProducto)
-            {          
-                ManejoBaseDeDatos.InsertarProducto(auxProducto);
-                exito = true;
-            }
-            else
-            {
-                exito = false;
-                throw new Exception();
-            }
 
-            return exito;
-        }
 
     }
 }

@@ -9,6 +9,41 @@ namespace Validaciones
 {
     public static class Validar
     {
+        /// <summary>
+        /// Valida que la cantidad ingresada sea correcta
+        /// </summary>
+        /// <param name="auxNumero"></param>
+        /// <returns>retorna el numero parseado o lanza una excepcion</returns>
+        public static int ValidarIds(string auxNumero)
+        {
+            int parseado = ValidarEnteros(auxNumero);
+            if (parseado > 0)
+            {
+                return parseado;
+            }
+            else
+            {
+                throw new DatosErroneosException("El id debe ser mayor a 0 y no de contener letras");
+            }
+        }
+
+        /// <summary>
+        /// Valida que la cantidad ingresada sea correcta
+        /// </summary>
+        /// <param name="auxNumero"></param>
+        /// <returns>retorna el numero parseado o lanza una excepcion</returns>
+        public static int ValidarNumeroDeParte(string auxNumero)
+        {
+            int parseado = ValidarEnteros(auxNumero);
+            if (parseado > 0)
+            {
+                return parseado;
+            }
+            else
+            {
+                throw new DatosErroneosException("El numero de parte debe ser mayor a 0 y no de contener letras");
+            }
+        }
 
         /// <summary>
         /// Valida que la cantidad ingresada sea correcta
