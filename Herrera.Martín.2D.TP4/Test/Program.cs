@@ -86,7 +86,7 @@ namespace Test
                 listaTestVenta.Add(Stock.ListaProductosHardware[producto2Random]);
 
                 //Creo una venta
-                Venta v1 = new Venta(Stock.GetUltimaIdVentas(),
+                Venta v1 = new Venta(Stock.GetUltimaIdVentas()+1,
                                      Stock.Clientes[clienteRandom],
                                      listaTestVenta,
                                      Venta.PrecioFinalCalculado(listaTestVenta));
@@ -102,6 +102,9 @@ namespace Test
                 //Serializo la lista de ventas
                 if(Venta.SerializarVentas())
                     Console.WriteLine("Ventas serializadas en archivo xml");
+
+                Console.WriteLine("Base de datos actualizada");
+
 
             }
             catch (DatosErroneosException errorEx)

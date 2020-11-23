@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excepciones;
 
 namespace Entidades
 {
@@ -21,7 +22,7 @@ namespace Entidades
         {
             listaProductosSoftware = ManejoBaseDeDatos.ObtenerProductosSoftware();
             listaProductosHardware = ManejoBaseDeDatos.ObtenerProductosHardware();
-            ventasRealizadas = new List<Venta>();
+            ventasRealizadas = DeserealizarArchivoVentas(); 
             clientes = DeserealizarArchivoClientes();
         }
 
@@ -69,12 +70,44 @@ namespace Entidades
         /// <returns></returns>
         private static List<Cliente> DeserealizarArchivoClientes()
         {
-            string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Clientes.xml");
-            List<Cliente> auxLista = new List<Cliente>();
-            Xml<List<Cliente>> Leer = new Xml<List<Cliente>>();
-            Leer.Leer(ubicacionArchivo, out auxLista);
+            try
+            {
+                string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Clientes.xml");
+                List<Cliente> auxLista = new List<Cliente>();
+                Xml<List<Cliente>> Leer = new Xml<List<Cliente>>();
+                Leer.Leer(ubicacionArchivo, out auxLista);
 
-            return auxLista;
+                return auxLista;
+            }
+            catch (ArchivosException exception)
+            {
+                throw exception;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Deserealiza un archivo llamado Clientes.xml que contiene clientes
+        /// Estos son ingresados a la lista de clientes
+        /// </summary>
+        /// <returns></returns>
+        private static List<Venta> DeserealizarArchivoVentas()
+        {
+            try
+            {
+                string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Ventas.xml");
+                List<Venta> auxLista = new List<Venta>();
+                Xml<List<Venta>> Leer = new Xml<List<Venta>>();
+                Leer.Leer(ubicacionArchivo, out auxLista);
+
+                return auxLista;
+
+            }
+            catch (ArchivosException exception)
+            {
+                throw exception;
+            }
         }
 
         /// <summary>
@@ -83,19 +116,27 @@ namespace Entidades
         /// <returns></returns>
         public static int GetUltimaIdVentas()        
         {
-            int auxLargo = ventasRealizadas.Count - 1;
-            int auxIndice = -1;
-
-            if (auxLargo == -1)
+            try
             {
-                auxIndice = 0;
-            }
-            else
-            {
-                auxIndice = ventasRealizadas[auxLargo].IdVenta;
+                int auxLargo = ventasRealizadas.Count - 1;
+                int auxIndice = -1;
 
+                if (auxLargo == -1)
+                {
+                    auxIndice = 0;
+                }
+                else
+                {
+                    auxIndice = ventasRealizadas[auxLargo].IdVenta;
+
+                }
+                return auxIndice;
             }
-            return auxIndice;
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         /// <summary>
@@ -106,19 +147,27 @@ namespace Entidades
         /// <returns></returns>
         public static int GetUltimaIdListaProductos<T>(List<T> auxLista) where T : Producto
         {
-            int auxLargo = auxLista.Count - 1;
-            int auxIndice = -1;
-
-            if (auxLargo == -1)
+            try
             {
-                auxIndice = 0;
-            }
-            else
-            {
-                auxIndice = auxLista[auxLargo].IdProducto;
+                int auxLargo = auxLista.Count - 1;
+                int auxIndice = -1;
 
+                if (auxLargo == -1)
+                {
+                    auxIndice = 0;
+                }
+                else
+                {
+                    auxIndice = auxLista[auxLargo].IdProducto;
+
+                }
+                return auxIndice;
             }
-            return auxIndice;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         /// <summary>
@@ -130,26 +179,34 @@ namespace Entidades
         /// <returns></returns>
         public static int GetIndiceProducto<T>(T producto) where T : Producto
         {
-            if(producto.GetType() == typeof(Software))
+            try
             {
-                for (int i = 0; i < ListaProductosSoftware.Count; i++)
+                if (producto.GetType() == typeof(Software))
                 {
-                    if(producto.IdProducto == ListaProductosSoftware[i].IdProducto)
+                    for (int i = 0; i < ListaProductosSoftware.Count; i++)
                     {
-                        return i;
+                        if (producto.IdProducto == ListaProductosSoftware[i].IdProducto)
+                        {
+                            return i;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ListaProductosHardware.Count; i++)
+                    {
+                        if (producto.IdProducto == ListaProductosHardware[i].IdProducto)
+                        {
+                            return i;
+                        }
                     }
                 }
             }
-            else
+            catch(Exception ex)
             {
-                for (int i = 0; i < ListaProductosHardware.Count; i++)
-                {
-                    if (producto.IdProducto == ListaProductosHardware[i].IdProducto)
-                    {
-                        return i;
-                    }
-                }
+                throw ex;
             }
+
 
             return -1;
         }
