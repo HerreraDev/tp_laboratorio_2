@@ -161,6 +161,7 @@
             this.MinimizeBox = false;
             this.Name = "FormInsertarSoftware";
             this.Text = "Insertar producto de software";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormInsertarSoftware_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

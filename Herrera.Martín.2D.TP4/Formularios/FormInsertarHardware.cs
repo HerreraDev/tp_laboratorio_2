@@ -37,7 +37,7 @@ namespace Formularios
         {
             try
             {
-                if (double.TryParse(this.txt_Precio.Text, out double precio) && int.TryParse(this.txt_Cantidad.Text, out int cantidad) && int.TryParse(this.txt_Cantidad.Text, out int numeroDeParte))
+                if (double.TryParse(this.txt_Precio.Text, out double precio) && int.TryParse(this.txt_Cantidad.Text, out int cantidad) && int.TryParse(this.txt_NumeroDeParte.Text, out int numeroDeParte))
                 {
                     Hardware auxHard = new Hardware(this.txt_Nombre.Text, precio, cantidad, numeroDeParte);
 
@@ -48,7 +48,7 @@ namespace Formularios
                 }
                 else
                 {
-                    MessageBox.Show("Verifique que no haya campos vacios");
+                    MessageBox.Show("Verifique que no haya campos vacios o letras en el campo numero de parte");
                 }
 
 
@@ -64,6 +64,11 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// Inserta el producto a la base
+        /// </summary>
+        /// <param name="auxHard"></param>
+        /// <returns>true si pudo, false si no pudo</returns>
         private bool InsertarProducto(Producto auxHard)
         {
             bool exito = false;
@@ -86,6 +91,12 @@ namespace Formularios
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormInsertarHardware_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            realizarInsert -= InsertarProducto;
+            realizarInsert -= Producto.Guardar;
         }
     }
 }

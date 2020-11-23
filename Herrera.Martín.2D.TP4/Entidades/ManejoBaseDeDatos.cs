@@ -182,7 +182,6 @@ namespace Entidades
                 "values(@auxNombre,@auxPrecio, @auxCantidad, @licenciaDelSoftware)"; ;
 
                 comandoAEjecutar.Parameters.Clear();
-                //comandoAEjecutar.Parameters.Add(new SqlParameter("@auxId", auxProd.IdProducto));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxNombre", auxSoftware.NombreProducto));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxPrecio", auxSoftware.Precio));
                 comandoAEjecutar.Parameters.Add(new SqlParameter("@auxCantidad", auxSoftware.Cantidad));

@@ -38,6 +38,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btn_Software = new System.Windows.Forms.Button();
             this.btn_Hardware = new System.Windows.Forms.Button();
+            this.btn_Salir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSoftware)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgHardware)).BeginInit();
             this.SuspendLayout();
@@ -161,12 +162,23 @@
             this.btn_Hardware.UseVisualStyleBackColor = true;
             this.btn_Hardware.Click += new System.EventHandler(this.btn_Hardware_Click);
             // 
+            // btn_Salir
+            // 
+            this.btn_Salir.Location = new System.Drawing.Point(775, 401);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(75, 37);
+            this.btn_Salir.TabIndex = 21;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
             this.ClientSize = new System.Drawing.Size(873, 450);
+            this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.btn_Hardware);
             this.Controls.Add(this.btn_Software);
             this.Controls.Add(this.label8);
@@ -177,6 +189,7 @@
             this.Controls.Add(this.btn_Refrescar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtgSoftware);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormPrincipal";
@@ -201,6 +214,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_Software;
         private System.Windows.Forms.Button btn_Hardware;
+        private System.Windows.Forms.Button btn_Salir;
     }
 }
 

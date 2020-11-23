@@ -34,7 +34,7 @@ namespace Formularios
         {
             try
             {
-                if (double.TryParse(this.txt_Precio.Text, out double precio) && int.TryParse(this.txt_Cantidad.Text, out int cantidad) && int.TryParse(this.txt_Cantidad.Text, out int numeroDeParte))
+                if (double.TryParse(this.txt_Precio.Text, out double precio) && int.TryParse(this.txt_Cantidad.Text, out int cantidad) && this.txt_Licencia.Text != string.Empty)
                 {
                     Software auxSoft = new Software(this.txt_Nombre.Text, precio, cantidad, this.txt_Licencia.Text);
 
@@ -87,6 +87,12 @@ namespace Formularios
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormInsertarSoftware_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            realizarInsert -= InsertarProducto;
+            realizarInsert -= Producto.Guardar;
         }
     }
 }
