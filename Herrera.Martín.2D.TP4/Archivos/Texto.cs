@@ -8,8 +8,14 @@ using Excepciones;
 
 namespace Archivos
 {
-    public class Texto : IArchivo<string>
+    public class Texto : IManejoArchivos<string>
     {
+        /// <summary>
+        /// Crea un archivo .txt
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <param name="datos"></param>
+        /// <returns></returns>
         public bool GuardarEnArchivo(string archivo, string datos)
         {
             bool exitoAlEscribirArchivo = false;

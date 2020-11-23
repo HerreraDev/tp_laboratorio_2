@@ -90,11 +90,14 @@ namespace Entidades
 
         #endregion
 
+        /// <summary>
+        /// Override del ToString, genera un string con los datos
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder datosProducto = new StringBuilder();
 
-            datosProducto.AppendLine($"ID: {this.IdProducto}");
             datosProducto.AppendLine($"Nombre: {this.NombreProducto}");
             datosProducto.AppendLine($"Precio: {this.Precio}");
             datosProducto.AppendLine($"Cantidad: {this.Cantidad}");
@@ -102,6 +105,12 @@ namespace Entidades
             return datosProducto.ToString();
         }
 
+
+
+        /// <summary>
+        /// Genera un string mas prolijo para mostrar por conosla
+        /// </summary>
+        /// <returns></returns>
         public virtual string ToStringParaConsola()
         {
             StringBuilder datosProducto = new StringBuilder();

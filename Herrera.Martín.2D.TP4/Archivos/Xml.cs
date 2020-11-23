@@ -10,8 +10,14 @@ using Excepciones;
 
 namespace Archivos
 {
-    public class Xml<T> : IArchivo<T>
+    public class Xml<T> : IManejoArchivos<T>
     {
+        /// <summary>
+        /// Serializa datos en archivo xml
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <param name="datos"></param>
+        /// <returns></returns>
         public bool GuardarEnArchivo(string archivo, T datos)
         {
             bool exitoAlGuardar = false;
@@ -29,7 +35,7 @@ namespace Archivos
                     }
                 }
             }
-            catch (Exception exc)
+            catch (Exception)
             {
 
                 throw new ArchivosException("Se produjo  un error al guarda  el archivo XML");

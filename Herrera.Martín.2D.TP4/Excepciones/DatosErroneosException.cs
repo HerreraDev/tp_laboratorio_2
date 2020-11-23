@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
+    /// <summary>
+    /// Utilizada para manejar errores al crear productos
+    /// </summary>
     public class DatosErroneosException : Exception
     {
         public DatosErroneosException() : base("Dato Erroneo") { }

@@ -17,10 +17,10 @@ namespace Test
             {
                Console.WriteLine("Testeando insertar productos a la base de datos: ");
 
-                Hardware h1 = new Hardware("Placa de video 1.5", 430, 8,78789789);
-                Hardware h2 = new Hardware("Procesador 2.6", 350, 100, 7894618);
-                Software s1 = new Software("Google", 50, 130, "APOSJPFRPE");
-                Software s2 = new Software("Mozilla", 20, 243, "OKDSAOPAKSD");
+                Hardware h1 = new Hardware("Teclado 2.0", 80, 60, 484645);
+                Hardware h2 = new Hardware("Pendrive 3.0", 200, 100, 849415);
+                Software s1 = new Software("Disney plus", 250, 250, "APOSJPFRPE");
+                Software s2 = new Software("Mozilla", 96, 145, "OKDSAOPAKSD");
 
 
                 Console.WriteLine("Tabla Software actualmente: ");
@@ -128,8 +128,34 @@ namespace Test
             }
             LimpiarPantalla();
 
+            try
+            {
+                Console.WriteLine("Testendo metodo de extension: ");
+                Console.WriteLine("");
+                Console.WriteLine("Se intentara ver la cantidad de productos disponibles para vender segun el tipo de producto");
+
+                int stockProductosSoftware = ExtensionList.GetCantidadStockTotal(Stock.ListaProductosSoftware);
+                int stockProductosHardware = ExtensionList.GetCantidadStockTotal(Stock.ListaProductosHardware);
+
+                Console.WriteLine("");
+                Console.WriteLine($"Stock productos de software: {stockProductosSoftware}");
+                Console.WriteLine($"Stock productos de Hardware: {stockProductosHardware}");
+            }
+            catch (DatosErroneosException datosErroneos)
+            {
+                Console.WriteLine(datosErroneos.Message);
+            }
+
+            LimpiarPantalla();
+
         }
 
+
+
+
+        /// <summary>
+        /// Muestra una linea divisora, pide que se presione una tecla para continuar y limpia la pantalla
+        /// </summary>
         private static void LimpiarPantalla()
         {
             Console.WriteLine("----------------------------------------------------------------------------------------------------");

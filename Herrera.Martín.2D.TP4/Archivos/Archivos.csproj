@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Texto.cs" />
-    <Compile Include="IArchivo.cs" />
+    <Compile Include="IManejoArchivos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xml.cs" />
   </ItemGroup>

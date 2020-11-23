@@ -14,6 +14,12 @@ using System.Threading;
 
 namespace Formularios
 {
+    /// <summary>
+    /// Delegado que permite metodos que devuelvan bool y que reciban un producto
+    /// </summary>
+    /// <param name="auxProd"></param>
+    /// <returns></returns>
+    public delegate bool Insert(Producto auxProd);
     public partial class FormPrincipal : Form
     {
         /// <summary>

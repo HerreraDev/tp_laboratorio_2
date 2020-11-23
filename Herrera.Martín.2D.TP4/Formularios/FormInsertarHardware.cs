@@ -14,12 +14,7 @@ using Validaciones;
 
 namespace Formularios
 {
-    /// <summary>
-    /// Delegado que permite metodos que devuelvan bool y que reciban un producto
-    /// </summary>
-    /// <param name="auxHard"></param>
-    /// <returns></returns>
-    public delegate bool Insert(Producto auxHard);
+
 
     public partial class FormInsertarHardware : Form
     {
