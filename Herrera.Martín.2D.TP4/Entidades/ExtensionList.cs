@@ -16,15 +16,23 @@ namespace System.Collections.Generic
         /// <returns></returns>
         public static int GetCantidadStockTotal<T>(this List<T> listaPedidos) where T : Producto
         {
-            int cantidadTotal = 0;
-
-            StringBuilder datos = new StringBuilder();
-            foreach (T item in listaPedidos)
+            if(listaPedidos.Count>0)
             {
-                cantidadTotal += item.Cantidad;
+                int cantidadTotal = 0;
+
+                StringBuilder datos = new StringBuilder();
+                foreach (T item in listaPedidos)
+                {
+                    cantidadTotal += item.Cantidad;
+                }
+
+                return cantidadTotal;
+            }
+            else
+            {
+                throw new Exception("Error, la lista esta vacia");
             }
 
-            return cantidadTotal;
         }
     }
 }

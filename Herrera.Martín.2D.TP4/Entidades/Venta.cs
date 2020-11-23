@@ -94,16 +94,24 @@ namespace Entidades
         /// <returns>0 si hubo error, double con el precio final</returns>
         public static double PrecioFinalCalculado(List<Producto> carrito)
         {
-            double precioFinal = 0;
-            if (carrito != null)
+            if (carrito.Count > 0)
             {
-                foreach (Producto item in carrito)
-                {
-                    precioFinal += item.Precio;
-                }
-            }
 
-            return precioFinal;
+                double precioFinal = 0;
+                if (carrito != null)
+                {
+                    foreach (Producto item in carrito)
+                    {
+                        precioFinal += item.Precio;
+                    }
+                }
+
+                return precioFinal;
+            }
+            else
+            {
+                throw new Exception("Error, el carrito esta vacio");
+            }
         }
 
         /// <summary>
@@ -132,36 +140,43 @@ namespace Entidades
         /// <param name="ventaAConfirmar"></param>
         public static void ConfirmarCompra(Venta ventaAConfirmar)
         {
-
-            //Descuento 1 la cantidad a los productos elegidos
-            foreach (Producto item in ventaAConfirmar.ListaProductos)
+            if (ventaAConfirmar != null)
             {
-                if (item.GetType() == typeof(Software))
+                //Descuento 1 la cantidad a los productos elegidos
+                foreach (Producto item in ventaAConfirmar.ListaProductos)
                 {
-                    Stock.ListaProductosSoftware[Stock.GetIndiceProducto((Software)item)].Cantidad--;
+                    if (item.GetType() == typeof(Software))
+                    {
+                        Stock.ListaProductosSoftware[Stock.GetIndiceProducto((Software)item)].Cantidad--;
+                    }
+                    else
+                    {
+                        Stock.ListaProductosHardware[Stock.GetIndiceProducto((Hardware)item)].Cantidad--;
+                    }
                 }
-                else
+
+                //Actualizo la cantidad de cada producto en la Base de Datos
+
+                foreach (Producto item in ventaAConfirmar.ListaProductos)
                 {
-                    Stock.ListaProductosHardware[Stock.GetIndiceProducto((Hardware)item)].Cantidad--;
+                    if (item.GetType() == typeof(Software))
+                    {
+                        ManejoBaseDeDatos.ActualizarProductoVendido((Software)item);
+                    }
+                    else
+                    {
+                        ManejoBaseDeDatos.ActualizarProductoVendido((Hardware)item);
+                    }
                 }
+
+                //Añado venta a la lista de ventas
+                Stock.VentasRealizadas.Add(ventaAConfirmar);
+            }
+            else
+            {
+                throw new Exception("La venta que llego por parametro es nula");
             }
 
-            //Actualizo la cantidad de cada producto en la Base de Datos
-
-            foreach (Producto item in ventaAConfirmar.ListaProductos)
-            {
-                if (item.GetType() == typeof(Software))
-                {
-                    ManejoBaseDeDatos.ActualizarProductoVendido((Software)item);
-                }
-                else
-                {
-                    ManejoBaseDeDatos.ActualizarProductoVendido((Hardware)item);
-                }
-            }
-
-            //Añado venta a la lista de ventas
-            Stock.VentasRealizadas.Add(ventaAConfirmar);
         }
     }
 }

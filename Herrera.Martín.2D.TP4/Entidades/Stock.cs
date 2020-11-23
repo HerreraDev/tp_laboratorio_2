@@ -22,7 +22,7 @@ namespace Entidades
         {
             listaProductosSoftware = ManejoBaseDeDatos.ObtenerProductosSoftware();
             listaProductosHardware = ManejoBaseDeDatos.ObtenerProductosHardware();
-            ventasRealizadas = DeserealizarArchivoVentas(); 
+            ventasRealizadas = DeserealizarArchivoVentas();
             clientes = DeserealizarArchivoClientes();
         }
 
@@ -53,14 +53,22 @@ namespace Entidades
         /// <returns></returns>
         public static string ListarLosProductos<T>(List<T> auxLista) where T : Producto
         {
-            StringBuilder lista = new StringBuilder();
-
-            foreach(Producto item in auxLista)
+            if (auxLista.Count > 0)
             {
-                lista.AppendLine(item.ToStringParaConsola()); 
+                StringBuilder lista = new StringBuilder();
+
+                foreach (Producto item in auxLista)
+                {
+                    lista.AppendLine(item.ToStringParaConsola());
+                }
+
+                return lista.ToString();
+            }
+            else
+            {
+                throw new Exception("Error, la lista no posee elementos");
             }
 
-            return lista.ToString();
         }
 
         /// <summary>
@@ -70,21 +78,13 @@ namespace Entidades
         /// <returns></returns>
         private static List<Cliente> DeserealizarArchivoClientes()
         {
-            try
-            {
-                string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Clientes.xml");
-                List<Cliente> auxLista = new List<Cliente>();
-                Xml<List<Cliente>> Leer = new Xml<List<Cliente>>();
-                Leer.Leer(ubicacionArchivo, out auxLista);
 
-                return auxLista;
-            }
-            catch (ArchivosException exception)
-            {
-                throw exception;
-            }
-
-
+            string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Clientes.xml");
+            List<Cliente> auxLista = new List<Cliente>();
+            Xml<List<Cliente>> Leer = new Xml<List<Cliente>>();
+            Leer.Leer(ubicacionArchivo, out auxLista);
+            
+            return auxLista;
         }
 
         /// <summary>
@@ -94,29 +94,21 @@ namespace Entidades
         /// <returns></returns>
         private static List<Venta> DeserealizarArchivoVentas()
         {
-            try
-            {
-                string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Ventas.xml");
-                List<Venta> auxLista = new List<Venta>();
-                Xml<List<Venta>> Leer = new Xml<List<Venta>>();
-                Leer.Leer(ubicacionArchivo, out auxLista);
+            string ubicacionArchivo = String.Concat(AppDomain.CurrentDomain.BaseDirectory, "Ventas.xml");
+            List<Venta> auxLista = new List<Venta>();
+            Xml<List<Venta>> Leer = new Xml<List<Venta>>();
+            Leer.Leer(ubicacionArchivo, out auxLista);
 
-                return auxLista;
-
-            }
-            catch (ArchivosException exception)
-            {
-                throw exception;
-            }
+            return auxLista;
         }
 
         /// <summary>
         /// Obtiene el ultimo id de la lista de ventas
         /// </summary>
         /// <returns></returns>
-        public static int GetUltimaIdVentas()        
+        public static int GetUltimaIdVentas()
         {
-            try
+            if(ventasRealizadas.Count > 0)
             {
                 int auxLargo = ventasRealizadas.Count - 1;
                 int auxIndice = -1;
@@ -132,9 +124,9 @@ namespace Entidades
                 }
                 return auxIndice;
             }
-            catch(Exception ex)
+            else
             {
-                throw ex;
+                throw new Exception("Error, la lista no posee elementos");
             }
 
         }
@@ -147,7 +139,7 @@ namespace Entidades
         /// <returns></returns>
         public static int GetUltimaIdListaProductos<T>(List<T> auxLista) where T : Producto
         {
-            try
+            if (auxLista.Count > 0)
             {
                 int auxLargo = auxLista.Count - 1;
                 int auxIndice = -1;
@@ -163,11 +155,10 @@ namespace Entidades
                 }
                 return auxIndice;
             }
-            catch (Exception ex)
+            else
             {
-                throw ex;
+                throw new Exception("Error, la lista no posee elementos");
             }
-
         }
 
         /// <summary>
@@ -202,7 +193,7 @@ namespace Entidades
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

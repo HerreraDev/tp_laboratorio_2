@@ -50,6 +50,8 @@ namespace Test
 
                     Console.WriteLine("Tabla de hardware:");
                     Console.WriteLine(Stock.ListarLosProductos(Stock.ListaProductosHardware));
+
+                    Console.WriteLine("Base de datos actualizada");
                 }
                 else
                 {
@@ -70,6 +72,8 @@ namespace Test
             try
             {
                 Console.WriteLine("Testeando generar una venta y serializarla");
+                Console.WriteLine("");
+                Console.WriteLine($"Cantidad de ventas actualmente: {Stock.VentasRealizadas.Count}");
                 Console.WriteLine("");
 
                 //Genero numeros random que serviran de indice para elegir un cliente aleatorio y productos aleatorios
